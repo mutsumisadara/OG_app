@@ -28,12 +28,14 @@ https://docs.google.com/spreadsheets/d/1Sl5U8qxj37s2uJgvhUJDdus7w9l2-bnvOGwaXbOz
 
 ## ワイヤーフレーム
 ---
-https://cacoo.com/diagrams/JvJ5Sp40IeJxAaWR/FC909<br>
+https://cacoo.com/diagrams/JvJ5Sp40IeJxAaWR/FC909
+<br>
 
 ## ER図
 ---
-
+![](https://github.com/mutsumisadara/OG_app/blob/main/pics/ER%E5%9B%B3.png)
 <br>
 
 ## 画面遷移図
 ---
+![](https://github.com/mutsumisadara/OG_app/blob/main/pics/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3.png)
