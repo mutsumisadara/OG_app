@@ -38,7 +38,7 @@ https://cacoo.com/diagrams/JvJ5Sp40IeJxAaWR/FC909
 
 ## ER図
 ---
-![](https://github.com/mutsumisadara/OG_app/blob/main/pics/ER%E5%9B%B3.png)
+![](https://github.com/mutsumisadara/OG_app/blob/main/pics/ER%E5%9B%B31.png)
 </br>
 
 ## 画面遷移図
