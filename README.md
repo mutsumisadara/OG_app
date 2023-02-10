@@ -14,6 +14,11 @@ AWS<br>
 Ajax
 </br>
 
+## カリキュラム外の技術
+---
+simple_calendar
+<br></br>
+
 ## 実行手順
 ---
 `$ git clone git@github.com:mutsumisadara/OG_app.git`<br>
@@ -24,17 +29,17 @@ Ajax
 
 ## カタログ設計•テーブル定義書
 ---
-https://docs.google.com/spreadsheets/d/1Sl5U8qxj37s2uJgvhUJDdus7w9l2-bnvOGwaXbOzy_4/edit#gid=1775028168<br>
+https://docs.google.com/spreadsheets/d/1Sl5U8qxj37s2uJgvhUJDdus7w9l2-bnvOGwaXbOzy_4/edit#gid=1775028168<br></br>
 
 ## ワイヤーフレーム
 ---
 https://cacoo.com/diagrams/JvJ5Sp40IeJxAaWR/FC909
-<br>
+<br></br>
 
 ## ER図
 ---
 ![](https://github.com/mutsumisadara/OG_app/blob/main/pics/ER%E5%9B%B3.png)
-<br>
+</br>
 
 ## 画面遷移図
 ---
