@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<h1>グループ詳細</h1>
+
+<p>
+  <strong>グループ名</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+<strong>メンバー</strong>
+<% @group.users.each do |user| %>
+  <%= user.email %>
+<% end %>
+</p>
+
+<%= link_to '編集', edit_group_path(:id) %>
+<%= link_to '戻る', groups_path %>
+
+  </div>
+</div>
