@@ -1,0 +1,7 @@
+<%= form_with(model: @animal, local: true) do |f| %>
+
+  <h3><%= '天使新規作成' %></h3>
+
+  <div class="card-body">
+    <%= render 'form', animal: @animal %>
+  </div>

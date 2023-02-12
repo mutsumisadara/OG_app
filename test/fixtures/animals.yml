@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sex: false
+  castration: false
+  picture: MyText
+  birthday: 2023-02-12
+  type: 
+  information: MyString
+
+two:
+  name: MyString
+  sex: false
+  castration: false
+  picture: MyText
+  birthday: 2023-02-12
+  type: 
+  information: MyString

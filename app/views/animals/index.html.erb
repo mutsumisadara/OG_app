@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2><%= @animal.name %></h2>
+<h3><%= @animal.sex %></h3>
+
+
+<%= link_to 'カルテ登録', new_animal_path %>
+<%= link_to '編集', edit_animal_path(:id) %>
+<%= link_to '戻る', group_path %>
