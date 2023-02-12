@@ -1,6 +1,7 @@
 class Animal < ApplicationRecord
     belongs_to :group
     validates :name, presence: true
-    validates :sex, presence: true
-    enum sex: { メス♀: 1, オス♂: 0 } 
+    validates :name, presence: true
+    # validates :name, checked, inclusion: [true, false]
+    enum sex: { メス♀: true, オス♂: false } 
 end

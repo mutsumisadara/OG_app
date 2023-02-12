@@ -1,11 +1,8 @@
 <p id="notice"><%= notice %></p>
-<%= form_with(model: @animal, local: true) do |f| %>
-<h2><%= @animal.id %></h2>
 
 <h2><%= @animal.name %></h2>
 <h3><%= @animal.sex %></h3>
 
-
 <%= link_to 'カルテ登録', new_animal_path %>
-<%= link_to '編集', edit_animal_path(:id) %>
-<%= link_to '戻る', group_path %>
+<%= link_to '編集', edit_animal_path(@animal) %>
+<%= link_to '戻る', group_path(current_user.group_id) %>

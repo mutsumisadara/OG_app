@@ -1,8 +1,6 @@
-<h1><%= @animal.name % 編集</h1>
+<p id="notice"><%= notice %></p>
+
+<h1><%= @animal.name %> 編集</h1>
 
 <%= render 'form', animal: @animal %>
-
-<%= link_to '戻る', animals_path %>
-
-  </div>
-</div>
+<%= link_to '戻る', group_path(current_user.group_id) %>

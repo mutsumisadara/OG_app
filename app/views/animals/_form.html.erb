@@ -22,11 +22,12 @@
 
   <div class="field">
     <%= form.label :性別 %>
-    <%= form.select :sex, Animal.sexes.keys.to_a, include_blank: '選択してください', class: 'form-control', required: true %>
-    <!-- <%= form.label :sex, 'メス♀', value: 1 %>
-    <%= form.radio_button :sex, '1' %>
-    <%= form.label :sex, 'オス♂', value: 0 %>
-    <%= form.radio_button :sex, '0' %> -->
+    <!-- <%= form.select :sex, Animal.sexes, include_blank: '選択してください', class: 'form-control', required: true %>-->
+    
+    <%= form.label :sex, 'メス♀', value: true %>
+    <%= form.radio_button :sex, 'true' %>
+    <%= form.label :sex, 'オス♂', value: false %>
+    <%= form.radio_button :sex, 'false' %>
   </div>
 
   <div class="actions">

@@ -8,20 +8,20 @@ class AnimalsController < ApplicationController
     end
 
     def create
-        # binding.irb
-        # @group = current_user
-        @animal = Animal.new(animal_params)
-        if @animal.save
-            redirect_to groups_path, notice: '天使を作成しました'
-        end
         # binding.pry
+        @group = current_user.group_id
+        @animal = Animal.new(animal_params)       
+        if @animal.save!
+          redirect_to group_path(@group), notice: '天使を作成しました'
+          unless
+            @animal = nil
+          end
+        # binding.pry
+        end
     end
 
     def show
         @animal = Animal.find(params[:id])
-        # animal_params
-        # set_animal
-        # binding.irb
     end
 
     def edit
@@ -29,10 +29,10 @@ class AnimalsController < ApplicationController
     end
 
     def update
+        @group = current_user.group_id
         @animal = Animal.find(params[:id])
-        if @animal.update(animal_params)
-            redirect_to groups_path, notice: '天使を更新しました'
-        end
+        @animal.update(animal_params)
+          redirect_to group_path(@group), notice: '天使を更新しました'
     end
 
     def destroy
