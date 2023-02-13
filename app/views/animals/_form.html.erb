@@ -1,0 +1,32 @@
+<%= form_with(model: @animal, local: true) do |form| %>
+
+  <% if animal.errors.any? %>
+  <div id="error_explanation">
+  <h3><%= pluralize(@animal.errors.count, "エラー") %> prohibited this agenda from being saved:</h3>
+
+  <ul>
+  <% @animal.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
+
+  <div class="field">
+    <%= form.label :名前 %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :性別 %> 
+    <%= form.label :sex, 'メス♀', value: true %>
+    <%= form.radio_button :sex, 'true' %>
+    <%= form.label :sex, 'オス♂', value: false %>
+    <%= form.radio_button :sex, 'false' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

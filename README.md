@@ -24,6 +24,7 @@ simple_calendar
 `$ git clone git@github.com:mutsumisadara/OG_app.git`<br>
 `$ cd OG_app`<br>
 `$ bundle install`<br>
+`$ yarn install`<br>
 `$ rails db:create && rails db:migrate`<br>
 `$ rails s`</br>
 

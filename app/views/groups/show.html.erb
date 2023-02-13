@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1><%= @group.name %></h1>
+
+<!--
+<p>
+<strong>メンバー</strong>
+<% @group.users.each do |user| %>
+  <%= user.email %>
+<% end %>
+</p> -->
+
+<p><strong>天使たち🐾</strong></p>
+
+<p>
+<% @group.animals.each do |animal| %>
+  <%= link_to animal.name, animal_path(animal) %>
+<% end %>
+</p>
+<br>
+
+<%= link_to '天使登録', new_animal_path %>
+<!-- <%= link_to '編集', edit_group_path(:id) %> -->
+<%= link_to '戻る', groups_path %>
+
+  </div>
+</div>
