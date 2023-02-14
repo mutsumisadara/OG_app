@@ -1,5 +1,6 @@
-<%= form_with(model: @animal_management, local: true) do |form| %>
-  
+<%= form_with(model: [@animal, @animal_management], url: animal_animal_managements_path, local: true) do |form| %>
+  <!-- <%= form.hidden_field :animal_id, value: animal_management.id %> -->
+
     <div class="field">
       <%= form.label :日付 %>
       <%= form.date_field :recorded_on %>
@@ -7,7 +8,7 @@
   
     <div class="field">
       <%= form.label :内容 %>
-      <%= form.text_field :content %>
+      <%= form.text_area :content %>
     </div>
 
     <div class="field">

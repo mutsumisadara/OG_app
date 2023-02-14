@@ -3,7 +3,9 @@
 <h2><%= @animal.name %></h2>
 <h3><%= @animal.sex ? 'メス♀' : 'オス♂' %></h3>
 
-<%= link_to 'カルテ登録', animal_managements_new_path %>
+<!-- カルテの日付タイトル表示させる -->
+<%= link_to 'カルテ登録', new_animal_animal_management_path(animal_id: @animal.id) %>
+
 <%= link_to '編集', edit_animal_path(@animal) %>
-<td><%= link_to '削除', @animal, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+<%= link_to '削除', @animal, method: :delete, data: { confirm: '本当に削除しますか？' } %>
 <%= link_to '戻る', group_path(@animal.group_id) %>
