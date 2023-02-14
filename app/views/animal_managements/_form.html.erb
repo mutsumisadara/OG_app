@@ -1,5 +1,4 @@
-<%= form_with(model: [@animal, @animal_management], url: animal_animal_managements_path, local: true) do |form| %>
-  <!-- <%= form.hidden_field :animal_id, value: animal_management.id %> -->
+<%= form_with(model: [@animal, @animal_management], url: animal_animal_managements_path, method: :patch, local: true) do |form| %>
 
     <div class="field">
       <%= form.label :日付 %>

@@ -3,7 +3,14 @@
 <h2><%= @animal.name %></h2>
 <h3><%= @animal.sex ? 'メス♀' : 'オス♂' %></h3>
 
-<!-- カルテの日付タイトル表示させる -->
+
+<table>
+    <% @animal.animal_managements.each do |animal| %>
+      <tr><td><%= link_to animal.recorded_on, animal_animal_management_path(@animal.id, @animal.animal_management_ids) %></td></tr>
+    <% end %>
+</table>
+<br>
+
 <%= link_to 'カルテ登録', new_animal_animal_management_path(animal_id: @animal.id) %>
 
 <%= link_to '編集', edit_animal_path(@animal) %>

@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+<h1>カルテ編集</h1>
+
+<%= render 'form', animal_management: @animal_management %>
+<%= link_to '戻る', animal_path(@animal_management.animal_id) %>
