@@ -1,2 +1,12 @@
-<h1>Schedules#index</h1>
-<p>Find me in app/views/schedules/index.html.erb</p>
+<h1>スケジュール</h1>
+<%= month_calendar schedules: @schedules do |date, schedules| %>
+    <%= date.day %>
+  
+    <% schedules.each do |schedule| %>
+      <div>
+        <%= schedule.content %>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <%= link_to 'スケジュール追加', new_schedule_path %>
