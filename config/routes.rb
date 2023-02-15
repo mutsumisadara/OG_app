@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   # root to: 'users#sign_up'
   resources :users
   resources :groups
-  resources :animals
+  resources :animals do
+    resources :animal_managements
+  end
 end

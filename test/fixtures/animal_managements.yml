@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recorded_on: 2023-02-13
+  content: MyText
+  temprature: 1.5
+  animal: one
+
+two:
+  recorded_on: 2023-02-13
+  content: MyText
+  temprature: 1.5
+  animal: two

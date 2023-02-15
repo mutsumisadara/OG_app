@@ -2,7 +2,7 @@
 
   <% if animal.errors.any? %>
   <div id="error_explanation">
-  <h3><%= pluralize(@animal.errors.count, "エラー") %> prohibited this agenda from being saved:</h3>
+  <h3><%= pluralize(@animal.errors.count, "エラー") %> prohibited this animal from being saved:</h3>
 
   <ul>
   <% @animal.errors.full_messages.each do |message| %>
