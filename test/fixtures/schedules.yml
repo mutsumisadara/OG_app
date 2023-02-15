@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  start_time: 2023-02-15 15:42:20
+  group: one
+
+two:
+  content: MyString
+  start_time: 2023-02-15 15:42:20
+  group: two
