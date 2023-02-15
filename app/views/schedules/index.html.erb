@@ -1,8 +1,7 @@
 <h1>スケジュール</h1>
-<%= month_calendar schedules: @schedules do |date, schedules| %>
+  <%= month_calendar do |date| %>
     <%= date.day %>
-  
-    <% schedules.each do |schedule| %>
+    <% @schedules.where(start_time: date.beginning_of_day..date.end_of_day).each do |schedule| %>
       <div>
         <%= schedule.content %>
       </div>
@@ -10,3 +9,4 @@
   <% end %>
   
   <%= link_to 'スケジュール追加', new_schedule_path %>
+  <%= link_to '戻る', group_path(current_user.group_id) %>

@@ -9,6 +9,7 @@ class AnimalsController < ApplicationController
       @animal = Animal.new(animal_params)
       @animal.group_id = current_user.group_id
       # @animal = current_user.group_id.build(animal_params)
+      binding.pry
       if @animal.save
         redirect_to group_path(@animal.group_id), notice: '天使を作成しました'
       else
@@ -33,9 +34,8 @@ class AnimalsController < ApplicationController
 
     def destroy
       @animal = Animal.find(params[:id])
-      if @animal.destroy
+      @animal.destroy
         redirect_to group_path(@animal.group_id), notice: '天使を削除しました'
-      end
     end
 
     private
