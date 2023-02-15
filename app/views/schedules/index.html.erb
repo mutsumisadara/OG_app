@@ -1,9 +1,11 @@
+<p id="notice"><%= notice %></p>
+
 <h1>スケジュール</h1>
   <%= month_calendar do |date| %>
     <%= date.day %>
     <% @schedules.where(start_time: date.beginning_of_day..date.end_of_day).each do |schedule| %>
       <div>
-        <%= schedule.content %>
+        <%=link_to schedule.content, schedule_path(schedule.id) %>
       </div>
     <% end %>
   <% end %>
