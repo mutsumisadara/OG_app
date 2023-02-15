@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>スケジュール</h1>
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+    <% @schedules.where(start_time: date.beginning_of_day..date.end_of_day).each do |schedule| %>
+      <div>
+        <%=link_to schedule.content, schedule_path(schedule.id) %>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <%= link_to 'スケジュール追加', new_schedule_path %>
+  <%= link_to '戻る', group_path(current_user.group_id) %>

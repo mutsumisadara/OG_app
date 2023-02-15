@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_13_061734) do
+ActiveRecord::Schema.define(version: 2023_02_15_064220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2023_02_13_061734) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string "content"
+    t.datetime "start_time"
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_schedules_on_group_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,5 +75,6 @@ ActiveRecord::Schema.define(version: 2023_02_13_061734) do
 
   add_foreign_key "animal_managements", "animals"
   add_foreign_key "animals", "groups"
+  add_foreign_key "schedules", "groups"
   add_foreign_key "users", "groups"
 end

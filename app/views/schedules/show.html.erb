@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+  <h1>スケジュール詳細</h1>
+
+    <%= @schedule.start_time.day %>
+    <%= @schedule.content %>
+<br>
+
+<%=link_to '編集', edit_schedule_path(@schedule.id) %>
+<%= link_to '削除', @schedule, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '戻る', schedules_path %>
