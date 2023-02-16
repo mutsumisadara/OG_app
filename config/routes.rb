@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :animal_managements
   end
   resources :schedules
+  resources :comment_rooms
+  resources :comments
 end
