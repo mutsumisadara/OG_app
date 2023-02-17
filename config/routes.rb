@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root to: 'users#sign_up'
+  root 'groups#index'
+  # root to: 'users#sign_up'
   resources :comment_rooms
   resources :comments
   resources :schedules

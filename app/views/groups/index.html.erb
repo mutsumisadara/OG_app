@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>グループ一覧</h1>
+<% if current_user.try(:admin?) %>
+  <h1>グループ一覧 管理者</h1>
+<% else %>
+  <h1>グループ一覧</h1>
+<% end %>
 
 <table>
   <thead>
