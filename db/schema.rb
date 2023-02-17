@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_16_034506) do
+ActiveRecord::Schema.define(version: 2023_02_16_025832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(version: 2023_02_16_034506) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_comment_rooms_on_group_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "content", null: false
-    t.bigint "comment_room_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["comment_room_id"], name: "index_comments_on_comment_room_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -92,7 +84,6 @@ ActiveRecord::Schema.define(version: 2023_02_16_034506) do
   add_foreign_key "animal_managements", "animals"
   add_foreign_key "animals", "groups"
   add_foreign_key "comment_rooms", "groups"
-  add_foreign_key "comments", "comment_rooms"
   add_foreign_key "schedules", "groups"
   add_foreign_key "users", "groups"
 end

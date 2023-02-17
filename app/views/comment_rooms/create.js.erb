@@ -1,0 +1,3 @@
+console.log("create.js.erbファイルが呼び出されました！");
+console.log("<%= @comment_room.content %>");
+$('.messages').append("<li class='message'><%= @message.body %></li><%= current_user.name %>");
