@@ -2,12 +2,34 @@
 <%= form_with(model: @group, local: true) do |form| %>
 
 <h1><%= @group.name %></h1>
+<!-- <h3><%= I18n.t('views.messages.leader') %>：<%= @group.owner_id %></h3> -->
+
   <div class="field">
     <%= form.label :メンバー招待 %>
     <%= form.text_field :email %>
-    <%= form.submit %>
-    </div>
+    <button type="submit" class="btn btn-info btn-flat"><%= I18n.t('views.button.invite') %></button>
+  </div>
 <% end %>
+
+<div class="mt-4">
+
+  <table class="table">
+    <tr>
+    <h5><%= I18n.t('views.messages.team_members2') %></h5>
+    </tr>
+  </table>
+
+  <table class="table">
+    <tbody>
+      <% @group.users.each do |user| %>
+        <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to I18n.t('views.button.delete'), user_path(user.id), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <p><strong>天使たち🐾</strong></p>
 
