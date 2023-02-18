@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'top#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    passwords: 'users/passwords'
+    passwords: 'users/password'
   }
-  
+
   resources :comment_rooms
   resources :comments
   resources :schedules
