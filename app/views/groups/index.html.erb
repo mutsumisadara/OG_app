@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>グループ一覧</h1>
+<% if current_user.try(:admin?) %>
+  <h1>グループ一覧 管理者</h1>
+<% else %>
+  <h1>グループ一覧</h1>
+<% end %>
 
 <table>
   <thead>
@@ -21,5 +23,6 @@
 </table>
 
 <br>
+<%= link_to 'マイページ', user_path(current_user.id) %>
 
 <%= link_to 'グループ設立', new_group_path %>
