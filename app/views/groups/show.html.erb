@@ -1,7 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<%= form_with(model: @group, local: true) do |form| %>
 
 <h1><%= @group.name %></h1>
+  <div class="field">
+    <%= form.label :メンバー招待 %>
+    <%= form.text_field :email %>
+    <%= form.submit %>
+    </div>
+<% end %>
 
 <p><strong>天使たち🐾</strong></p>
 
