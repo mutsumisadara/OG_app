@@ -1,5 +1,4 @@
 <h1><%= current_user.name %>のマイページ</h1>
 
-<h3>所属グループ：<%= link_to @group.name, group_path(@group.id) %></h3>
-
+<h3>所属グループ：<%= link_to current_user.group.name, group_path(current_user.group_id) %></h3>
 <%= link_to '戻る', groups_path%>
