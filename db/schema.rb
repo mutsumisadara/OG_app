@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_18_081724) do
+ActiveRecord::Schema.define(version: 2023_02_19_024149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2023_02_18_081724) do
   add_foreign_key "animal_managements", "animals"
   add_foreign_key "animals", "groups"
   add_foreign_key "comment_rooms", "groups"
+  add_foreign_key "groups", "users", column: "owner_id"
   add_foreign_key "schedules", "groups"
   add_foreign_key "users", "groups"
 end
