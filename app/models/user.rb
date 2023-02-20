@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  belongs_to :group
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  belongs_to :group
+  has_many :groups, class_name: "Group", foreign_key: "owner_id"
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable #, :validatable
   
   def self.guest
   find_or_create_by!(email: 'guest@example.com') do |user|

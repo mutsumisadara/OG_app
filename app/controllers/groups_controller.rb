@@ -12,14 +12,14 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    # redirect_to groups_path, 
-    # notice: '属していません' unless current_user.group_id == @group.id
     redirect_to groups_path, notice: '属していません' unless @group.users.include?(current_user)
   end
 
   def create
     @group = Group.new(group_params)
+    @group.owner_id = current_user.id
     if @group.save
+      current_user.group_id = @group.id
       redirect_to groups_path, notice: 'グループを作成しました'
     end
   end
@@ -30,16 +30,25 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
+    @user = User.find_by(email: params[:group][:email])
+    @user.group_id = current_user.group_id
     if @group.update(group_params)
-      redirect_to groups_path, notice: 'グループを更新しました'
+      redirect_to @group, notice: 'グループを更新しました'    
+    else
+      if @user.update(group_id: @user.group_id)
+      # redirect_to @group, notice: "#{@user.name}を招待しました" and return
+      redirect_to @group, notice: "#{@user.name}を招待しました"
+    else
+      flash.now[:alert] = '失敗しました'
+      render :show
+      end
     end
   end
 
   def destroy
     @group = Group.find(params[:id])
-    if @group.destroy
+    @group.destroy unless current_user.id == @group.owner_id #owner_idFKつけないと使えない
       redirect_to groups_path, notice: 'グループを削除しました'
-    end
   end
 
   def guest_sign_in
@@ -47,11 +56,16 @@ class GroupsController < ApplicationController
       user.name = "ゲストユーザー"
       user.group_id = '1'
       user.password = SecureRandom.urlsafe_base64
-      # user.skip_confirmation!  # Confirmable を使用している場合は必要
-      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  def remove_member
+    @group = Group.find(params[:id])
+    @user = User.find(params[:user_id])
+    @user.update(group_id: nil)
+    redirect_to @group, notice: "#{@user.name}をグループから削除しました"
   end
 
   private
@@ -60,7 +74,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:id, :name, user_ids:[], animal_ids:[])
-      # (:id, :name, user_ids:[])
+    params.require(:group).permit(:id, :name)
+      # (:id, :name, user_ids:[]), user_ids:[], animal_ids:[]
   end
 end

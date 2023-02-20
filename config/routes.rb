@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'top#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    passwords: 'users/passwords'
+    passwords: 'users/password'
   }
-  
+
   resources :comment_rooms
   resources :comments
   resources :schedules
@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :animals do
     resources :animal_managements
   end
+
+  delete '/groups/:id/remove_member/:user_id', to: 'groups#remove_member', as: 'remove_member'
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'

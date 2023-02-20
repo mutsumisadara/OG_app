@@ -9,4 +9,4 @@
 
 <%=link_to '編集', edit_schedule_path(@schedule.id) %>
 <%= link_to '削除', @schedule, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to '戻る', schedules_path %>
+<%= link_to '戻る', schedules_path(group_id: current_user.group_id) %>
