@@ -1,6 +1,0 @@
-<p id="notice"><%= notice %></p>
-<h2><%= @comment.content %></h2>
-<%= render 'form', comment: @comment %>
-<%= link_to '編集', edit_comment_path(@comment) %>
-<%= link_to '削除', @comment, method: :delete, data: { confirm: '本当に削除しますか？' } %>
-<%= link_to '戻る', comments_path %>
