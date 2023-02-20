@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :animal_managements
   end
 
+  delete '/groups/:id/remove_member/:user_id', to: 'groups#remove_member', as: 'remove_member'
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     post 'users/guest_admin_sign_in', to: 'users/sessions#guest_admin_sign_in'

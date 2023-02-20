@@ -12,8 +12,6 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    # redirect_to groups_path, 
-    # notice: '属していません' unless current_user.group_id == @group.id
     redirect_to groups_path, notice: '属していません' unless @group.users.include?(current_user)
   end
 
@@ -34,10 +32,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @user = User.find_by(email: params[:group][:email])
     @user.group_id = current_user.group_id
-    # binding.pry
-    # @user = @user.group_id
-    # @user.group_id.update!
-    # binding.pry
     if @group.update(group_params)
       redirect_to @group, notice: 'グループを更新しました'    
     else
@@ -53,7 +47,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    @group.destroy unless current_user == @group.owner
+    @group.destroy unless current_user.id == @group.owner_id #owner_idFKつけないと使えない
       redirect_to groups_path, notice: 'グループを削除しました'
   end
 
@@ -65,6 +59,13 @@ class GroupsController < ApplicationController
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  def remove_member
+    @group = Group.find(params[:id])
+    @user = User.find(params[:user_id])
+    @user.update(group_id: nil)
+    redirect_to @group, notice: "#{@user.name}をグループから削除しました"
   end
 
   private
