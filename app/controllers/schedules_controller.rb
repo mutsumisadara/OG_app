@@ -2,10 +2,12 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = Schedule.all
+    # @group = Group.find(params[:id])
   end
 
   def new
     @schedule = Schedule.new
+    # @group = Group.find(params[:id])
   end
 
   def create
@@ -22,6 +24,7 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+    # @group = Group.find(params[:id])
   end
 
   def update

@@ -31,8 +31,31 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    if @group.update(group_params)
-      redirect_to groups_path, notice: 'グループを更新しました'
+    @user = User.find_by(email: params[:group][:email])
+
+    # @user = User.find_by(invite_user_email)
+    # @user = User.find_by(params[:group][:email])
+    # @user.group_id << current_user.group_id
+    @user.group_id = current_user.group_id
+    # binding.pry
+    # @user = @user.group_id
+    # @user.group_id.update!
+    # binding.pry
+    # if @group.update(group_params)
+    #   redirect_to @group, notice: 'グループを更新しました'
+    # if @user.group_id.update_attribute(group_id: @user.group_id)
+    # if @user.group_id.update(:group_id)
+    
+    # else
+      if @user.update(group_id: @user.group_id)
+      # redirect_to @group, notice: "#{@user.name}を招待しました" and return
+      redirect_to @group, notice: "#{@user.name}を招待しました"
+      # flash.now[:notice] = 'メンバーを招待しました'
+      # render :index
+    # else
+    #   flash.now[:alert] = '失敗しました'
+    #   render :show
+      # end
     end
   end
 
@@ -48,8 +71,6 @@ class GroupsController < ApplicationController
       user.name = "ゲストユーザー"
       user.group_id = '1'
       user.password = SecureRandom.urlsafe_base64
-      # user.skip_confirmation!  # Confirmable を使用している場合は必要
-      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
@@ -61,7 +82,11 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:id, :name, user_ids:[], animal_ids:[])
-      # (:id, :name, user_ids:[])
+    params.require(:group).permit(:id, :name)
+      # (:id, :name, user_ids:[]), user_ids:[], animal_ids:[]
   end
+
+  # def invite_user_email
+  #   params.require(:group).permit(columns_attributes: [:email])
+  # end
 end
