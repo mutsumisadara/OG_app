@@ -10,5 +10,5 @@
     <% end %>
   <% end %>
   
-  <%= link_to 'スケジュール追加', new_schedule_path %>
+  <%= link_to 'スケジュール追加', new_schedule_path(group_id: @group.id) %>
   <%= link_to '戻る', group_path(current_user.group_id) %>

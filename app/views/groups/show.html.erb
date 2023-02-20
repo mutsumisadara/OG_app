@@ -2,7 +2,6 @@
 <%= form_with(model: @group, local: true) do |form| %>
 
 <h1><%= @group.name %></h1>
-<h5><%= I18n.t('views.messages.leader') %>：<%= @group.owner.name %></h5>
 
   <div class="field">
     <%= form.label :メンバー招待 %>
@@ -41,6 +40,7 @@
 <br>
 
 <%= link_to '天使登録', new_animal_path %>
-<%= link_to '予定確認', schedules_path(@group.id) %>
+<%= link_to '予定確認', schedules_path(group_id: @group.id) %>
+<!-- <%= link_to '予定確認', schedules_path(@group.id) %> -->
 <%= link_to 'チャットルーム', comment_rooms_path %>
 <%= link_to '戻る', groups_path %>

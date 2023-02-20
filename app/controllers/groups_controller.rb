@@ -19,8 +19,9 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    @group.owner = current_user
+    @group.owner_id = current_user.id
     if @group.save
+      current_user.group_id = @group.id
       redirect_to groups_path, notice: 'グループを作成しました'
     end
   end
@@ -32,38 +33,28 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     @user = User.find_by(email: params[:group][:email])
-
-    # @user = User.find_by(invite_user_email)
-    # @user = User.find_by(params[:group][:email])
-    # @user.group_id << current_user.group_id
     @user.group_id = current_user.group_id
     # binding.pry
     # @user = @user.group_id
     # @user.group_id.update!
     # binding.pry
-    # if @group.update(group_params)
-    #   redirect_to @group, notice: 'グループを更新しました'
-    # if @user.group_id.update_attribute(group_id: @user.group_id)
-    # if @user.group_id.update(:group_id)
-    
-    # else
+    if @group.update(group_params)
+      redirect_to @group, notice: 'グループを更新しました'    
+    else
       if @user.update(group_id: @user.group_id)
       # redirect_to @group, notice: "#{@user.name}を招待しました" and return
       redirect_to @group, notice: "#{@user.name}を招待しました"
-      # flash.now[:notice] = 'メンバーを招待しました'
-      # render :index
-    # else
-    #   flash.now[:alert] = '失敗しました'
-    #   render :show
-      # end
+    else
+      flash.now[:alert] = '失敗しました'
+      render :show
+      end
     end
   end
 
   def destroy
     @group = Group.find(params[:id])
-    if @group.destroy
+    @group.destroy unless current_user == @group.owner
       redirect_to groups_path, notice: 'グループを削除しました'
-    end
   end
 
   def guest_sign_in
@@ -85,8 +76,4 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:id, :name)
       # (:id, :name, user_ids:[]), user_ids:[], animal_ids:[]
   end
-
-  # def invite_user_email
-  #   params.require(:group).permit(columns_attributes: [:email])
-  # end
 end

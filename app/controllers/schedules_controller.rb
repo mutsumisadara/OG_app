@@ -1,13 +1,15 @@
 class SchedulesController < ApplicationController
 
   def index
-    @schedules = Schedule.all
-    # @group = Group.find(params[:id])
+    @group = Group.find(params[:group_id])
+    @schedules = Schedule.where(group_id: @group.id)
+    # @schedules = Schedule.where(group_id: current_user.group_id)
   end
 
   def new
     @schedule = Schedule.new
-    # @group = Group.find(params[:id])
+    @group = Group.find(params[:group_id])
+    # createできたらgroup_id入っているか要確認
   end
 
   def create
@@ -15,8 +17,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
     @schedule.group_id = current_user.group_id
     if @schedule.save
-      # binding.pry
-      redirect_to schedules_path, notice: 'スケジュールを追加しました'
+      redirect_to group_path(@schedule.group_id), notice: 'スケジュールを追加しました'
     else
       redirect_to schedules_path, notice: '失敗しました'
     end
@@ -24,7 +25,6 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
-    # @group = Group.find(params[:id])
   end
 
   def update
