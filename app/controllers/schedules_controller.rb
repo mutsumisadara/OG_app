@@ -2,22 +2,21 @@ class SchedulesController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @schedules = Schedule.where(group_id: @group.id)
-    # @schedules = Schedule.where(group_id: current_user.group_id)
+    @schedules = Schedule.where(group_id: @group)
   end
 
   def new
     @schedule = Schedule.new
     @group = Group.find(params[:group_id])
-    # createできたらgroup_id入っているか要確認
   end
 
   def create
-    # @schedule = current_user.group_id.schedules.build(schedule_params)
+    # @group = Group.find(params[:group_id])
+    # @schedule = @group.schedules.build(schedule_params)
     @schedule = Schedule.new(schedule_params)
     @schedule.group_id = current_user.group_id
     if @schedule.save
-      redirect_to group_path(@schedule.group_id), notice: 'スケジュールを追加しました'
+      redirect_to schedules_path(group_id: @schedule.group_id), notice: 'スケジュールを追加しました'
     else
       redirect_to schedules_path, notice: '失敗しました'
     end
@@ -30,7 +29,7 @@ class SchedulesController < ApplicationController
   def update
     set_schedule
     @schedule.update(schedule_params)
-      redirect_to schedules_path, notice: '更新しました'
+      redirect_to schedules_path(group_id: current_user.id), notice: '更新しました'
   end
 
   def edit
@@ -40,7 +39,7 @@ class SchedulesController < ApplicationController
   def destroy
     set_schedule
     @schedule.destroy
-      redirect_to schedules_path, notice: '削除しました'
+      redirect_to schedules_path(group_id: current_user.id), notice: '削除しました'
   end
 
   private
