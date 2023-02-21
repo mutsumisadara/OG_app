@@ -11,8 +11,13 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    redirect_to groups_path, notice: '属していません' unless @group.users.include?(current_user)
+    if current_user.admin?      
+      @group = Group.find(params[:id])
+    elsif
+      @group.users.include?(current_user)
+    else
+      redirect_to groups_path, notice: '属していません'
+    end
   end
 
   def create
