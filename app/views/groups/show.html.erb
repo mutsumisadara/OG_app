@@ -7,10 +7,10 @@
     <%= form.email_field :email %>
     <button type="submit" class="btn btn-info btn-flat"><%= I18n.t('views.button.invite') %></button>
   </div>
-
 <% end %>
 
-  <div class="mt-4">
+<div class="mt-4">
+  <div style="float: right;">
     <table class="table">
       <tr>
         <h5><%= I18n.t('views.messages.team_members2') %></h5>
@@ -29,16 +29,20 @@
     </table>
   </div>
 
-  <h3>天使たち🐾</h3>
-<br>
-  <h4>
-    <table>
-      <% @group.animals.each do |animal| %>
-        <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
-      <% end %>
-    </table>
-  </h4>
-<br>
+  <div class="angels">
+    <h3>天使たち🐾</h3>
+    <br>
+    <h4>
+      <table>
+        <% @group.animals.each do |animal| %>
+          <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
+        <% end %>
+      </table>
+    </h4>
+    <br>
+  </div>
+</div>
+
 
 <%= link_to '天使登録', new_animal_path, class: 'btn btn-sm btn-primary' %>
 <%= link_to '予定確認', schedules_path(group_id: @group.id), class: 'btn btn-sm btn-primary' %>

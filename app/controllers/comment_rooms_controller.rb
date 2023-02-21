@@ -2,6 +2,7 @@ class CommentRoomsController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @comment_rooms = CommentRoom.where(group_id: @group)
+    # @comment_rooms = CommentRoom.includes(group: :users)
     @comment_room = CommentRoom.new
     # binding.pry
   end

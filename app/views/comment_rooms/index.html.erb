@@ -7,7 +7,9 @@
       <tr>
       <% @comment_rooms.each do |comment_room| %>
         <td><%= comment_room.content %></td>
-        <td><%= current_user.name %></td>
+        <!-- <% comment_room.group.users.each do |user| %>
+          <td><%= user.name %></td>
+        <% end %> -->
         <td><%= comment_room.created_at.strftime("%m/%d %H:%M") %></td>
       </tr>
       <% end %>
