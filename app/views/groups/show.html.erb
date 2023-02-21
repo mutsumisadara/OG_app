@@ -1,42 +1,43 @@
 <%= form_with(model: @group, local: true) do |form| %>
 
-<h1><%= @group.name %></h1>
+  <h1><%= @group.name %></h1>
 
   <div class="field">
     <%= form.label :メンバー招待 %>
     <%= form.email_field :email %>
     <button type="submit" class="btn btn-info btn-flat"><%= I18n.t('views.button.invite') %></button>
   </div>
+
 <% end %>
 
-<div class="mt-4">
-  <table class="table">
-    <tr>
-    <h5><%= I18n.t('views.messages.team_members2') %></h5>
-    </tr>
-  </table>
+  <div class="mt-4">
+    <table class="table">
+      <tr>
+        <h5><%= I18n.t('views.messages.team_members2') %></h5>
+      </tr>
+    </table>
 
-  <table class="table">
-    <tbody>
-      <% @group.users.each do |user| %>
-        <tr>
-        <td><%= user.name %></td>
-        <td><%= button_to "削除", remove_member_path(user_id: user.id), method: :delete, data: { confirm: "本当に削除してよろしいですか?" }, class: 'btn btn-sm btn-danger' %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <table class="table">
+      <tbody>
+        <% @group.users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= button_to "削除", remove_member_path(user_id: user.id), method: :delete, data: { confirm: "本当に削除してよろしいですか?" }, class: 'btn btn-sm btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<h3>天使たち🐾</h3>
+  <h3>天使たち🐾</h3>
 <br>
-<h4>
-<table>
-<% @group.animals.each do |animal| %>
-  <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
-<% end %>
-</table>
-</h4>
+  <h4>
+    <table>
+      <% @group.animals.each do |animal| %>
+        <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
+      <% end %>
+    </table>
+  </h4>
 <br>
 
 <%= link_to '天使登録', new_animal_path, class: 'btn btn-sm btn-primary' %>

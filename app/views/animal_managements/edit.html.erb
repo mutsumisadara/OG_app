@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 <%= form_with(model: [@animal, @animal_management], url: animal_animal_management_path, local: true) do |form| %>
 
-<h1>カルテ編集</h1>
+  <h1>カルテ編集</h1>
 
-<div class="field">
-<%= form.label :日付 %>
-<%= form.date_field :recorded_on %>
-</div>
+  <div class="field">
+    <%= form.label :日付 %>
+    <%= form.date_field :recorded_on %>
+  </div>
 
-<div class="field">
-<%= form.label :内容 %>
-<%= form.text_area :content %>
-</div>
+  <div class="field">
+    <%= form.label :内容 %>
+    <%= form.text_area :content %>
+  </div>
 
-<div class="field">
-<%= form.label :体温 %>
-<%= form.number_field :temprature, step: '0.1' %>
-</div>
+  <div class="field">
+    <%= form.label :体温 %>
+    <%= form.number_field :temprature, step: '0.1' %>
+  </div>
 
-<div class="actions">
-<%= form.submit %>
-</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to '戻る', animal_path(@animal_management.animal_id) %>
-<% end %>
