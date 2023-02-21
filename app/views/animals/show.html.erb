@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @animal.name %></h2>
-<h3><%= @animal.sex ? 'メス♀' : 'オス♂' %></h3>
-<p><%= image_tag@animal.picture.url %></p>
+<div class="animal-profile">
+  <div class="animal-profile-info">
+    <%= @animal.name %>
+    <%= @animal.sex ? 'メス♀' : 'オス♂' %>
+    <%= image_tag @animal.picture_url %></p>
+  </div>
+</div>
 
 <table>
     <% @animal.animal_managements.each do |animal| %>
