@@ -2,7 +2,7 @@
 
 <h2><%= @animal.name %></h2>
 <h3><%= @animal.sex ? 'メス♀' : 'オス♂' %></h3>
-
+<p><%= image_tag@animal.picture.url %></p>
 
 <table>
     <% @animal.animal_managements.each do |animal| %>

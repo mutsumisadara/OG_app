@@ -2,23 +2,21 @@
 
 <h1>チャットルーム🗣️</h1>
 
-<div class="contents">
-  <%= render @comment_room %> <%# _message.html.erbを呼び出す %>
-  <ul class="comment_room">
+
 
   <table>
     <tbody>
       <tr>
       <% @comment_rooms.each do |comment_room| %>
         <td><%= comment_room.content %></td>
-        <td><%= current_user.id %></td>
+        <td><%= current_user.name %></td>
         <td><%= comment_room.created_at.strftime("%m/%d %H:%M") %></td>
       </tr>
       <% end %>
     </tbody>
   </table>  
 
-  <%= form_with(model: @comment_room, class: 'js-form') do |f| %>
+  <%= form_with(model: @comment_room, local: false, class: 'js-form') do |f| %>
     <%= f.text_field :content %>
     <%= f.submit %>
   <% end %>

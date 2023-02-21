@@ -25,6 +25,11 @@
     <%= form.radio_button :sex, 'false' %>
   </div>
 
+  <div class="field">
+    <%= form.label :写真 %>
+    <%= form.file_field :picture %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

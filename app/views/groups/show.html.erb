@@ -41,5 +41,5 @@
 
 <%= link_to '天使登録', new_animal_path, class: 'btn btn-sm btn-primary' %>
 <%= link_to '予定確認', schedules_path(group_id: @group.id), class: 'btn btn-sm btn-primary' %>
-<%= link_to 'チャットルーム', comment_rooms_path, class: 'btn btn-sm btn-primary' %>
+<%= link_to 'チャットルーム', comment_rooms_path(group_id: @group.id), class: 'btn btn-sm btn-primary' %>
 <%= link_to '戻る', groups_path, class: 'btn btn-sm btn-primary' %>

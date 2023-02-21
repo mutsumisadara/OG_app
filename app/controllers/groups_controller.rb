@@ -30,21 +30,20 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to @group, notice: 'グループを更新しました'
+    end
+
     @user = User.find_by(email: params[:group][:email])
     @user.group_id = current_user.group_id
-    if @group.update(group_params)
-      redirect_to @group, notice: 'グループを更新しました'    
-    else
-      if @user.update(group_id: @user.group_id)
-      # redirect_to @group, notice: "#{@user.name}を招待しました" and return
+    if @user.update(group_id: @user.group_id)
       redirect_to @group, notice: "#{@user.name}を招待しました"
     else
       flash.now[:alert] = '失敗しました'
       render :show
-      end
     end
   end
-
+  
   def destroy
     @group = Group.find(params[:id])
     @group.destroy unless current_user.id == @group.owner_id #owner_idFKつけないと使えない
