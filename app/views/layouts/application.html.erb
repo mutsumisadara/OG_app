@@ -19,16 +19,16 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <% if user_signed_in? %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                <%= link_to "グループ一覧", groups_path %>
-                <%= link_to "マイページ", user_path(current_user.id) %>
-                <%= link_to 'グループ設立', new_group_path %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to "グループ一覧", groups_path, class: "nav-link" %>
+                <%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %>
+                <%= link_to 'グループ設立', new_group_path, class: "nav-link" %>
                 <% if current_user.admin? %>
                   <%= link_to "管理者画面", rails_admin_path, class: "nav-link" %>
                 <% end %>
               <% else %>
-                <%= link_to "新規登録", new_user_registration_path %>
-                <%= link_to "ログイン", new_user_session_path %>
+                <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+                <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
                 <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "nav-link" %>
                 <%= link_to 'ゲスト管理者ログイン', users_guest_admin_sign_in_path, method: :post, class: "nav-link" %>
               <% end %>
