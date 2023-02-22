@@ -2,8 +2,10 @@
   <% if current_user.try(:admin?) %>
     <h1>グループ一覧 管理者</h1>
   <% else %>
-    <h1>グループ一覧</h1>
+    <h1>グループ一覧🐾</h1>
   <% end %><br>
+</div> 
+<div class="group-list">
   <table>
     <tbody>
       <% @groups.each do |group| %>

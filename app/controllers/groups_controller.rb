@@ -54,6 +54,9 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.destroy
       redirect_to groups_path, notice: 'グループを削除しました'
+    else
+      '権限がありません'
+    end
   end
 
   def guest_sign_in
