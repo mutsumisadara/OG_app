@@ -50,8 +50,9 @@ class GroupsController < ApplicationController
   end
   
   def destroy
+    if current_user.admin?
     @group = Group.find(params[:id])
-    @group.destroy unless current_user.id == @group.owner_id #owner_idFKつけないと使えない
+    @group.destroy
       redirect_to groups_path, notice: 'グループを削除しました'
   end
 
