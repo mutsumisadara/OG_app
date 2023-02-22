@@ -17,5 +17,5 @@
   <%= render partial: 'comments/form', locals: { comment: @comment, comment_room: @comment_room } %>
 
   <%= link_to '編集', edit_comment_room_path(@comment_room) %> |
-  <%= link_to '戻る', comment_rooms_path %>
+  <%= link_to '戻る', groups_path(@comment_room.group_id) %>
 </div>

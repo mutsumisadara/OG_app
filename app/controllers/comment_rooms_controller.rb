@@ -1,22 +1,24 @@
 class CommentRoomsController < ApplicationController
   def index
-    @comment_rooms = CommentRoom.all
+    @group = Group.find(params[:group_id])
+    @comment_rooms = CommentRoom.where(group_id: @group)
+    # @comment_rooms = CommentRoom.includes(group: :users)
     @comment_room = CommentRoom.new
-    @comment_room.group_id = current_user.group_id
     # binding.pry
   end
 
   def new
     @comment_room = CommentRoom.new
+    @group = Group.find(params[:group_id])
   end
 
   def create
-    # binding.pry
     @comment_room = CommentRoom.new(comment_room_params)
     @comment_room.group_id = current_user.group_id
     respond_to do |format|
       if @comment_room.save
-        format.html { redirect_to comment_rooms_url }
+                        # binding.pry
+        format.html { redirect_to comment_rooms_url(group_id: @comment_room.group_id) }
         format.json { redirect_to comment_rooms_url }
         # format.json { render :show, status: :created, location: @comment }
       else
@@ -28,16 +30,14 @@ class CommentRoomsController < ApplicationController
 
 
   def show
-    # @comments = Comment.all
     set_params
-    # @comments = @comment_room.comments
-    # @comment = @comment_room.comments.build
-      # binding.pry
+    @group = Group.find(params[:group_id])
+    @comment_rooms = CommentRoom.where(group_id: @group)
   end
 
   private
   def comment_room_params
-    params.require(:comment_room).permit(:id, :content)
+    params.require(:comment_room).permit(:content)
   end
 
   def set_params

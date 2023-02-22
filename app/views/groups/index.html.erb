@@ -1,28 +1,27 @@
-<% if current_user.try(:admin?) %>
-  <h1>グループ一覧 管理者</h1>
-<% else %>
-  <h1>グループ一覧</h1>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to group.name, group %></td>
-        <!-- <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="group-name">
+  <% if current_user.try(:admin?) %>
+    <h1>グループ一覧 管理者</h1>
+  <% else %>
+    <h1>グループ一覧🐾</h1>
+  <% end %><br>
+</div> 
+<div class="group-list">
+  <table>
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= link_to group.name, group %></td>
+          <% if current_user.try(:admin?) %>
+            <td><%= link_to '編集', edit_group_path(group.id) %></td>
+            <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
-<%= link_to 'マイページ', user_path(current_user.id) %>
-
-<%= link_to 'グループ設立', new_group_path %>
+<div class="bottom">
+  <%= link_to 'マイページ', user_path(current_user.id), class: 'btn btn-light' %>
+  <%= link_to 'グループ設立', new_group_path, class: 'btn btn-light' %>
+</div>

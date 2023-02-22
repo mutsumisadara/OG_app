@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_19_024149) do
+ActiveRecord::Schema.define(version: 2023_02_22_073725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2023_02_19_024149) do
     t.boolean "castration", default: false
     t.text "picture"
     t.date "birthday"
-    t.string "type"
+    t.string "kinds"
     t.string "information"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

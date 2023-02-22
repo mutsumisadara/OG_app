@@ -11,8 +11,13 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    redirect_to groups_path, notice: '属していません' unless @group.users.include?(current_user)
+    if current_user.admin?      
+      @group = Group.find(params[:id])
+    elsif
+      @group.users.include?(current_user)
+    else
+      redirect_to groups_path, notice: '属していません'
+    end
   end
 
   def create
@@ -30,25 +35,28 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to @group, notice: 'グループを更新しました'
+    end
+
     @user = User.find_by(email: params[:group][:email])
     @user.group_id = current_user.group_id
-    if @group.update(group_params)
-      redirect_to @group, notice: 'グループを更新しました'    
-    else
-      if @user.update(group_id: @user.group_id)
-      # redirect_to @group, notice: "#{@user.name}を招待しました" and return
+    if @user.update(group_id: @user.group_id)
       redirect_to @group, notice: "#{@user.name}を招待しました"
     else
       flash.now[:alert] = '失敗しました'
       render :show
-      end
     end
   end
-
+  
   def destroy
+    if current_user.admin?
     @group = Group.find(params[:id])
-    @group.destroy unless current_user.id == @group.owner_id #owner_idFKつけないと使えない
+    @group.destroy
       redirect_to groups_path, notice: 'グループを削除しました'
+    else
+      '権限がありません'
+    end
   end
 
   def guest_sign_in
@@ -75,6 +83,5 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:id, :name)
-      # (:id, :name, user_ids:[]), user_ids:[], animal_ids:[]
   end
 end
