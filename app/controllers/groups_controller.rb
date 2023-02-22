@@ -79,6 +79,5 @@ class GroupsController < ApplicationController
 
   def group_params
     params.require(:group).permit(:id, :name)
-      # (:id, :name, user_ids:[]), user_ids:[], animal_ids:[]
   end
 end

@@ -31,6 +31,8 @@ class CommentRoomsController < ApplicationController
 
   def show
     set_params
+    @group = Group.find(params[:group_id])
+    @comment_rooms = CommentRoom.where(group_id: @group)
   end
 
   private

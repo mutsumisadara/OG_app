@@ -14,6 +14,7 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
   img {
     border-radius: 50%;
     width: 100px;
@@ -44,4 +45,25 @@
     font-family: "Hannari";
     text-align: center;
     font-family: 'キウイ丸', serif;
+  }
+
+  .mypage {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Hannari";
+    text-align: center;
+    font-family: 'キウイ丸', serif;
+  }
+
+  .dic {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Hannari";
+    text-align: center;
+    font-family: 'キウイ丸', serif;
+    font-size: 80px;
   }

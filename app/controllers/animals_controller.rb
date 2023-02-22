@@ -24,8 +24,9 @@ class AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
+    # binding.pry
     @animal.update(animal_params)
-      redirect_to group_path(@animal.group_id), notice: '天使を更新しました'
+      redirect_to animal_path(@animal.id), notice: '天使を更新しました'
   end
 
   def destroy
@@ -36,7 +37,7 @@ class AnimalsController < ApplicationController
 
   private
   def animal_params
-    params.require(:animal).permit(:id, :name, :sex, :picture, :picture_cache)
+    params.require(:animal).permit(:id, :name, :sex, :castration, :picture, :picture_cache, :birthday, :kinds, :information)
   end
 
   def set_animal

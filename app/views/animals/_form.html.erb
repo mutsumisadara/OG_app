@@ -24,13 +24,35 @@
     <%= form.radio_button :sex, 'false' %>
   </div>
 
+  <div class="field">
+    <%= form.label :'去勢/避妊' %> 
+    <%= form.label :castration, '済', value: true %>
+    <%= form.radio_button :castration, 'true' %>
+    <%= form.label :castration, '未', value: false %>
+    <%= form.radio_button :castration, 'false' %>
+  </div>
+
   <div class="image">
     <%= form.label :写真 %>
     <%= form.file_field :picture %>
   </div>
 
+  <div class="time">
+    <%= form.label :'誕生日/保護日' %>
+    <%= form.date_select :birthday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :種類 %>
+    <%= form.text_field :kinds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :備考 %>
+    <%= form.text_area :information %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
-
 <% end %>
