@@ -7,7 +7,8 @@
     <br>
     <%= '去勢/避妊' %>:<%= @animal.castration ? '済' : '未' %>
     <br>
-    <%= '誕生日'%>:<%= @animal.birthday %>
+    <%= '誕生日'%>:<%= @animal.birthday.strftime("%Y/%m/%d") %>
+    <%= @animal.kinds %>
     <br>
     <%= @animal.information %>
 

@@ -1,22 +1,21 @@
 <%= form_with(model: @group, local: true) do |form| %>
 
-  <h1><%= @group.name %></h1>
-
-  <div class="field">
-    <%= form.label :メンバー招待 %>
-    <%= form.email_field :email %>
-    <button type="submit" class="btn btn-info btn-flat"><%= I18n.t('views.button.invite') %></button>
+  <div class="group-name">
+    <h1><%= @group.name %></h1>
   </div>
-<% end %>
 
-<div class="mt-4">
-  <div style="float: right;">
+  <div class="invite">
+    <%= form.label :メンバー招待 %><br>
+    <%= form.email_field :email %>
+    <button type="submit" class="btn btn-light"><%= I18n.t('views.button.invite') %></button>
+  </div>
+
+  <div class="team-member">
     <table class="table">
       <tr>
         <h5><%= I18n.t('views.messages.team_members2') %></h5>
       </tr>
     </table>
-
     <table class="table">
       <tbody>
         <% @group.users.each do |user| %>
@@ -30,21 +29,18 @@
   </div>
 
   <div class="angels">
-    <h3>天使たち🐾</h3>
-    <br>
-    <h4>
-      <table>
-        <% @group.animals.each do |animal| %>
-          <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
-        <% end %>
-      </table>
-    </h4>
-    <br>
+    <h3>天使たち🐾</h3><br>
+    <table>
+      <% @group.animals.each do |animal| %>
+        <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr></h4>
+      <% end %><br>
+    </table>
   </div>
+<% end %>
+
+<div class="bottom">
+  <%= link_to '天使登録', new_animal_path, class: 'btn btn-light' %>
+  <%= link_to '予定確認', schedules_path(group_id: @group.id), class: 'btn btn-light' %>
+  <%= link_to 'チャットルーム', comment_rooms_path(group_id: @group.id), class: 'btn btn-light' %>
+  <%= link_to '戻る', groups_path, class: 'btn btn-light' %>
 </div>
-
-
-<%= link_to '天使登録', new_animal_path, class: 'btn btn-sm btn-primary' %>
-<%= link_to '予定確認', schedules_path(group_id: @group.id), class: 'btn btn-sm btn-primary' %>
-<%= link_to 'チャットルーム', comment_rooms_path(group_id: @group.id), class: 'btn btn-sm btn-primary' %>
-<%= link_to '戻る', groups_path, class: 'btn btn-sm btn-primary' %>
