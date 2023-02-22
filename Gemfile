@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 gem 'devise'
 gem 'rexml'
 gem 'devise-i18n'
