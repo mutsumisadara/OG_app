@@ -38,6 +38,7 @@ class GroupsController < ApplicationController
     # @group.owner_id.update_attribute :owner_id, current_user.id
     # @group.owner_id = current_user.id
     if @group.save(owner_id: current_user.id)
+      # (@team.owner)
       # @group.owner_id = current_user.id
       current_user.group_id = @group.id
       redirect_to groups_path, notice: "#{@group.name}を作成しました"
