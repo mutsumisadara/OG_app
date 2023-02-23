@@ -1,0 +1,25 @@
+<%= form_with(model: @user, local: true) do |form| %>
+
+  <div class="mypage">
+    <h1><%= current_user.name %> 編集</h1>
+    <br>
+    <div class="name">
+      <%= form.label :名前 %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="dic">
+<%= link_to '戻る', user_path(current_user.id), class: 'btn btn-light' %>
+</div>
