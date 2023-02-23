@@ -9,7 +9,8 @@
   <strong>体温</strong>
   <%= @animal_management.temprature %>
 </p>
-
-<%= link_to '編集', edit_animal_animal_management_path(@animal_management.animal_id, @animal_management.id) %>
-<%= link_to '削除', animal_animal_management_path(@animal_management.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-<%= link_to '戻る', animal_path(@animal_management.animal_id) %>
+<div class="btm-buttons">
+  <%= link_to '編集', edit_animal_animal_management_path(@animal_management.animal_id, @animal_management.id), class: 'btn btn-light' %>
+  <%= link_to '削除', animal_animal_management_path(@animal_management.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-light' %>
+  <%= link_to '戻る', animal_path(@animal_management.animal_id), class: 'btn btn-light' %>
+</div>

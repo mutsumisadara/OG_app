@@ -7,7 +7,7 @@
   <% end %></h4>
 </div>
 
-<div class="dic">
+<div class="btm-buttons">
   <%= link_to 'グループ一覧', groups_path, class: 'btn btn-light' %>
   <%= link_to '編集', edit_user_path(current_user.id), class: 'btn btn-light' %>
   <%= link_to I18n.t('views.button.delete'), user_path(current_user.id), method: :delete, data: { confirm: '退会しますか？' }, class: 'btn btn-sm btn-danger' %></td>
