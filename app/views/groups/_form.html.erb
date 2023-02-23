@@ -1,14 +1,14 @@
 <%= form_with(model: @group, local: true) do |form| %>
 
-  <% if group.errors.any? %>
+  <% if @group.errors.any? %>
     <div class="alert alert-danger alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
       <h5>
         <i class="icon fa fa-ban"></i>
-        <%= pluralize(group.errors.count, "error") %> prohibited this team from being saved:
+        <%= pluralize(@group.errors.count, "error") %> prohibited this team from being saved:
       </h5>
       <ul>
-        <% group.errors.full_messages.each do |message| %>
+        <% @group.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -19,10 +19,7 @@
     <%= form.label :グループ名 %>
     <%= form.text_field :name %>
   </div>
-
-  <div class="btn">
-    <%= form.submit %>
-  </div>
+  <%= form.submit '登録', class: 'btn btn-light' %>
 <% end %>
 
 <%= link_to '戻る', groups_path, class: 'btn btn-light' %>

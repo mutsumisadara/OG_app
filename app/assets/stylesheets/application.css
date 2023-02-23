@@ -56,13 +56,12 @@
     font-family: 'キウイ丸', serif;
   }
 
-  .dic {
+  .btm-buttons {
     position: absolute;
-    top: 80%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: "Hannari";
     text-align: center;
     font-family: 'キウイ丸', serif;
-    font-size: 80px;
+    font-size: 30px;
   }

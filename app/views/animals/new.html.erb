@@ -3,4 +3,4 @@
 <h3><%= '天使新規作成' %></h3>
 
 <%= render 'form', animal: @animal %>
-<%= link_to '戻る', group_path(current_user.group_id) %>
+<%= link_to '戻る', group_path(current_user.group_id), class: 'btn btn-light' %>
