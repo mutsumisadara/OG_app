@@ -1,7 +1,7 @@
 <div class="animal-profile">
   <div style="float: center;">
     <%= image_tag @animal.picture_url %>
-    <p>今日で保護して<%= Date.today - @animal.birthday %>目</p>
+    <p>今日で保護して<%= (Date.today.strftime("%m%d").to_i - @animal.birthday.strftime("%m%d").to_i) %>日目</p>
   </div>
     <%= @animal.name %>
     <%= @animal.sex ? 'メス♀' : 'オス♂' %>
@@ -12,8 +12,7 @@
     <%= @animal.kinds %>
     <br>
     <%= @animal.information %>
-  </div>
-  <div class="karte">
+
     <table>
       <% @animal.animal_managements.each do |animal| %>
         <tr><td><%= link_to animal.recorded_on, animal_animal_management_path(@animal.id, @animal.animal_management_ids) %></td></tr>
