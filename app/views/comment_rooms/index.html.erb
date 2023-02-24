@@ -2,23 +2,25 @@
 
 <h2>チャットルーム🗣️</h2>
 
-  <table class="table-class">
-    <tbody>
-      <tr>
-      <% @comment_rooms.each do |comment_room| %>
-        <td><%= comment_room.content %></td>
-        <% comment_room.group.users.each do |user| %>
-          <td><%= user.name %></td>
-        <% end %>
-        <td><%= comment_room.created_at.strftime("%m/%d %H:%M") %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <div class="field">
-    <%= form_with(model: @comment_room, local: false, class: 'js-form') do |f| %>
-      <%= f.text_field :content, placeholder: 'チャット入力' %>
-      <%= f.submit '送信', class: 'btn btn-light' %>
+<table class="table-chat">
+  <tr>
+  <% @comment_rooms.each do |comment_room| %>
+    <td><%= comment_room.content %></td>
+    <% comment_room.group.users.each do |user| %>
+      <td><%= user.name %></td>
     <% end %>
-  </div>
-<%= link_to '戻る', group_path(@group.id), class: 'btn btn-light' %>
+    <td><%= comment_room.created_at.strftime("%m/%d %H:%M") %></td>
+  </tr>
+  <% end %>
+</table>
+
+<div class="field">
+  <%= form_with(model: @comment_room, local: false, class: 'js-form') do |f| %>
+    <%= f.text_field :content, placeholder: 'チャット入力' %>
+    <%= f.submit '送信', class: 'btn btn-light' %>
+  <% end %>
+</div>
+
+<div class="btm-buttons">
+  <%= link_to '戻る', group_path(@group.id), class: 'btn btn-light' %>
+</div>

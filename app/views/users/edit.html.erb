@@ -1,25 +1,23 @@
 <%= form_with(model: @user, local: true) do |form| %>
 
-  <div class="mypage">
-    <h1><%= current_user.name %> 編集</h1>
-    <br>
-    <div class="name">
-      <%= form.label :名前 %>
-      <%= form.text_field :name %>
-    </div>
+  <h2><%= current_user.name %> 編集</h2>
+  <br>
+  <div class="name">
+    <%= form.label :名前 %>
+    <%= form.text_field :name %>
+  </div>
 
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.text_field :email %>
-    </div>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
+  <div class="actions">
+    <%= form.submit '更新', class: 'btn btn-light' %>
   </div>
 <% end %>
 
 
-<div class="dic">
+<div class="btm-buttons">
 <%= link_to '戻る', user_path(current_user.id), class: 'btn btn-light' %>
 </div>
