@@ -20,27 +20,12 @@ class GroupsController < ApplicationController
     end
   end
   
-  # def create
-  #   @group = current_user.groups.build(group_params)
-  #   @group.owner_id = current_user.id
-  #   if @group.save
-  #     current_user.update(group_id: @group.id)
-  #     redirect_to groups_path, notice: 'グループを作成しました'
-  #   else
-  #     flash.now[:alert] = '失敗しました'
-  #     render :show
-  #   end
-  # end
-  
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
-    # @group.owner_id.update_attribute :owner_id, current_user.id
-    # @group.owner_id = current_user.id
-    if @group.save(owner_id: current_user.id)
-      # (@team.owner)
-      # @group.owner_id = current_user.id
-      current_user.group_id = @group.id
+    if @group.save
+      current_user.update_attribute(:group_id, @group.id)
+      # binding.pry
       redirect_to groups_path, notice: "#{@group.name}を作成しました"
     else
       flash.now[:alert] = '失敗しました'
