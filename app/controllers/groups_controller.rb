@@ -42,15 +42,6 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to @group, notice: 'グループを更新しました'
     end
-
-    @user = User.find_by(email: params[:group][:email])
-    @user.group_id = current_user.group_id
-    if @user.update(group_id: @user.group_id)
-      redirect_to @group, notice: "#{@user.name}を招待しました"
-    else
-      flash.now[:alert] = '失敗しました'
-      render :show
-    end
   end
   
   def destroy
@@ -71,6 +62,18 @@ class GroupsController < ApplicationController
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  def invite_member
+    @group = Group.find(params[:id])
+    @user = User.find_by(email: params[:group][:email])
+    @user.group_id = current_user.group_id
+    if @user.update(group_id: @user.group_id)
+      redirect_to group_path(@group.id), notice: "#{@user.name}を招待しました"
+    else
+      flash.now[:alert] = '失敗しました'
+      render :show
+    end
   end
 
   def remove_member

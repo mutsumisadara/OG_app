@@ -1,13 +1,13 @@
-<%= form_with(model: @group, local: true) do |form| %>
 
-  <h2><%= @group.name %></h2>
+<h2><%= @group.name %></h2>
 
-  <div class="invite">
-    <%= form.label :メンバー招待 %><br>
-    <%= form.email_field :email %>
-    <button type="submit" class="btn btn-light"><%= I18n.t('views.button.invite') %></button>
-  </div>
-
+  <%= form_with(model: @group, url: invite_member_path(@group), local: true) do |form| %>
+    <h4>
+      <%= form.label :email, 'メンバー招待' %><br>
+      <%= form.email_field :email %>
+      <button type="submit" class="btn btn-light"><%= I18n.t('views.button.invite') %></button>
+    </h4>
+  <% end %>
   <div class="team-member">
     <table class="table">
       <tr>
@@ -31,7 +31,7 @@
         <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
       <% end %>
     </table>
-<% end %>
+
 
 <div class="btm-buttons">
   <%= link_to '天使登録', new_animal_path, class: 'btn btn-light' %>
