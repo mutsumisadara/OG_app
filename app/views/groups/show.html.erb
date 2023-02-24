@@ -1,8 +1,6 @@
 <%= form_with(model: @group, local: true) do |form| %>
 
-  <div class="group-name">
-    <h1><%= @group.name %></h1>
-  </div>
+  <h2><%= @group.name %></h2>
 
   <div class="invite">
     <%= form.label :メンバー招待 %><br>
@@ -27,15 +25,12 @@
       </tbody>
     </table>
   </div>
-
-  <div class="angels">
-    <h3>天使たち🐾</h3><br>
-    <table>
+  <h4>天使たち🐾</h4>
+    <table class="table-class">
       <% @group.animals.each do |animal| %>
-        <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr></h4>
-      <% end %><br>
+        <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
+      <% end %>
     </table>
-  </div>
 <% end %>
 
 <div class="btm-buttons">

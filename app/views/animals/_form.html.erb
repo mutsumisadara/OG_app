@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :名前 %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: '名前入力' %>
   </div>
 
   <div class="field">
@@ -32,24 +32,24 @@
     <%= form.radio_button :castration, 'false' %>
   </div>
 
-  <div class="image">
+  <div class="field">
     <%= form.label :写真 %>
     <%= form.file_field :picture %>
   </div>
 
-  <div class="time">
+  <div class="field">
     <%= form.label :'誕生日/保護日' %>
     <%= form.date_select :birthday %>
   </div>
 
   <div class="field">
     <%= form.label :種類 %>
-    <%= form.text_field :kinds %>
+    <%= form.text_field :kinds, placeholder: '種類(例:雑種)' %>
   </div>
 
   <div class="field">
     <%= form.label :備考 %>
-    <%= form.text_area :information %>
+    <%= form.text_area :information, placeholder: 'その他周知事項' %>
   </div>
 
   <div class="actions">
