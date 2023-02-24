@@ -7,12 +7,12 @@
 
   <div class="field">
     <%= form.label :内容 %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, placeholder: '食事、トイレの回数など(例:朝食:ドライフード20g)' %>
   </div>
 
   <div class="field">
     <%= form.label :体温 %>
-    <%= form.number_field :temprature, step: '0.1' %>
+    <%= form.number_field :temprature, step: '0.1', placeholder: '体温の入力' %>
   </div>
 
   <div class="actions">
