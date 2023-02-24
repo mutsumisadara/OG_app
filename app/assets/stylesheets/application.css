@@ -152,3 +152,8 @@
   .navbar-brand{
     font-family: 'キウイ丸', serif;
   }
+
+  .btn {
+    background-color: #FFCCFF;
+    color: white;
+  }
