@@ -12,14 +12,12 @@
     <%= @animal.kinds %>
     <br>
     <%= @animal.information %>
-
-    <table>
-      <% @animal.animal_managements.each do |animal| %>
-        <tr><td><%= link_to animal.recorded_on, animal_animal_management_path(@animal.id, @animal.animal_management_ids) %></td></tr>
-      <% end %>
-    </table>
-  </div>
-<br>
+</div>
+<table class="table-class">
+  <% @animal.animal_managements.each do |animal| %>
+    <tr><td><%= link_to animal.recorded_on, animal_animal_management_path(@animal.id, @animal.animal_management_ids), class: "link-class" %></td></tr>
+  <% end %>
+</table>
 <div class="btm-buttons">
   <%= link_to 'カルテ登録', new_animal_animal_management_path(animal_id: @animal.id), class: 'btn btn-light' %>
   <%= link_to '編集', edit_animal_path(@animal), class: 'btn btn-light' %>

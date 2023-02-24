@@ -46,16 +46,6 @@
     font-family: 'キウイ丸', serif;
   }
 
-  .mypage {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: "Hannari";
-    text-align: center;
-    font-family: 'キウイ丸', serif;
-  }
-
   .btm-buttons {
     position: absolute;
     top: 85%;
@@ -65,3 +55,48 @@
     font-family: 'キウイ丸', serif;
     font-size: 30px;
   }
+
+  .field {
+    font-family: 'キウイ丸', serif;
+  }
+
+  .actions {
+    font-family: 'キウイ丸', serif;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 3rem;
+    border-bottom: solid 1px rgb(53, 53, 53) ;
+    margin: 0 25%;
+    margin-top: 2rem;
+    color: rgb(53, 53, 53);
+    font-weight: bold;
+    padding: 1rem 0;
+    font-family: 'キウイ丸', serif;
+  }
+
+  h4 {
+    text-align: center;
+    margin-top: 3rem;
+    margin: 0 25%;
+    margin-top: 2rem;
+    color: rgb(53, 53, 53);
+    font-weight: bold;
+    padding: 1rem 0;
+    font-family: 'キウイ丸', serif;
+  }
+
+  .table-class {
+    /* テーブル全体に適用されるスタイル */
+    margin-top: 3rem;
+    margin-left: 32rem;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  
+  .link-class {
+    /* リンクに適用されるスタイル */
+    color: black;
+  }
+  

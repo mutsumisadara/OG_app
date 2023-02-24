@@ -1,14 +1,8 @@
-<h3><%= @animal_management.recorded_on %></h3>
+<h2><%= @animal_management.recorded_on %></h2>
 
-<p>
-  <strong>内容</strong>
-  <%= @animal_management.content %>
-</p>
+  <h4>内容：<%= @animal_management.content %></h4>
+  <h4>体温：<%= @animal_management.temprature %></h4>
 
-<p>
-  <strong>体温</strong>
-  <%= @animal_management.temprature %>
-</p>
 <div class="btm-buttons">
   <%= link_to '編集', edit_animal_animal_management_path(@animal_management.animal_id, @animal_management.id), class: 'btn btn-light' %>
   <%= link_to '削除', animal_animal_management_path(@animal_management.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-light' %>

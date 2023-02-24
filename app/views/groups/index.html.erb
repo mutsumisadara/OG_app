@@ -1,19 +1,19 @@
-<div class="group-name">
-  <% if current_user.try(:admin?) %>
-    <h1>グループ一覧 管理者</h1>
-  <% else %>
-    <h1>グループ一覧🐾</h1>
-  <% end %><br>
-</div> 
+
+<% if current_user.try(:admin?) %>
+  <h2>グループ一覧 管理者</h2>
+<% else %>
+  <h2>グループ一覧🐾</h2>
+<% end %>
+
 <div class="group-list">
   <table>
     <tbody>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= link_to group.name, group %></td>
+          <td><%= link_to group.name, group, class: "link-class" %></td>
           <% if current_user.try(:admin?) %>
-            <td><%= link_to '編集', edit_group_path(group.id) %></td>
-            <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+            <td><%= link_to '編集', edit_group_path(group.id), class: "link-class" %></td>
+            <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "link-class" %></td>
           <% end %>
         </tr>
       <% end %>

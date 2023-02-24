@@ -1,6 +1,6 @@
 <%= form_with(model: [@animal, @animal_management], url: animal_animal_management_path, local: true) do |form| %>
 
-  <h1>カルテ編集</h1>
+  <h2>カルテ編集</h2>
 
   <div class="field">
     <%= form.label :日付 %>
@@ -18,8 +18,10 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '更新', class: 'btn btn-light' %>
   </div>
 <% end %>
 
-<%= link_to '戻る', animal_path(@animal_management.animal_id), class: 'btn btn-light' %>
+<div class="btm-buttons">
+  <%= link_to '戻る', animal_path(@animal_management.animal_id), class: 'btn btn-light' %>
+</div>
