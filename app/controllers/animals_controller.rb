@@ -8,7 +8,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(animal_params)
     @animal.group_id = current_user.group_id
     if @animal.save
-      redirect_to group_path(@animal.group_id), notice: '天使を作成しました'
+      redirect_to animal_path(@animal.id), notice: '天使を作成しました'
     else
       render :new, notice:'作成に失敗しました'
     end
