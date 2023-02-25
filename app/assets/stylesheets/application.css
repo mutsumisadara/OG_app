@@ -20,6 +20,11 @@
     height: 100px;
   }
 
+  .navbar-nav {
+    font-family: 'キウイ丸', serif;
+    margin-left: 0;
+  }
+
   footer {
     position: fixed;
     bottom: 0;
@@ -39,19 +44,31 @@
   }
 
   .field {
+    left: 50%;
+    text-align: center;
+    margin-top: 2rem;
     font-family: 'キウイ丸', serif;
   }
 
   .actions {
+    left: 50%;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'キウイ丸', serif;
+    font-family: 'キウイ丸', serif;
+  }
+
+  .submit {
+    left: 50%;
+    text-align: center;
+    margin-bottom: 1rem;
     font-family: 'キウイ丸', serif;
   }
 
   h2 {
     text-align: center;
-    margin-top: 3rem;
     border-bottom: solid 1px rgb(53, 53, 53) ;
     margin: 0 25%;
-    margin-top: 2rem;
     color: rgb(53, 53, 53);
     font-weight: bold;
     padding: 1rem 0;
@@ -146,11 +163,7 @@
   }
 
   #error_explanation li{
-    list-style:none;
-  }
-
-  .navbar-brand{
-    font-family: 'キウイ丸', serif;
+    list-style: none;
   }
 
   .btn {

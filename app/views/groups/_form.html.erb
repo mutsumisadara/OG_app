@@ -5,7 +5,7 @@
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
       <h5>
         <i class="icon fa fa-ban"></i>
-        <%= pluralize(@group.errors.count, "error") %> prohibited this team from being saved:
+        <%= pluralize(@group.errors.count, "件のエラー") %>
       </h5>
       <ul>
         <% @group.errors.full_messages.each do |message| %>
@@ -18,8 +18,9 @@
   <div class="field">
     <%= form.label :グループ名 %>
     <%= form.text_field :name, placeholder: 'グループ名入力' %>
+    <%= form.submit '登録', class: 'btn btn-light' %>
   </div>
-  <%= form.submit '登録', class: 'btn btn-light' %>
 <% end %>
-
-<%= link_to '戻る', groups_path, class: 'btn btn-light' %>
+<div class="btm-buttons">
+  <%= link_to '戻る', groups_path, class: 'btn btn-light' %>
+</div>

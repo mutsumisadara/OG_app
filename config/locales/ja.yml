@@ -1,5 +1,24 @@
 ja:
   activerecord:
+    attributes:
+      animal:
+        name: '名前'
+        sex: '性別'
+        castration: '避妊/去勢'
+        picture: '写真'
+        birthday: '誕生日または保護日'
+        kinds: '種類'
+        information: '備考'
+      group:
+        name: 'グループ名'
+      comment_roon:
+        content: '内容'
+      schedule:
+        content: '予定'
+      animal_management:
+        recorded_on: '日付'
+        content: '内容'
+        temprature: '体温'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
