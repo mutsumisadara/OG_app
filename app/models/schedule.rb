@@ -1,4 +1,4 @@
 class Schedule < ApplicationRecord
   belongs_to :group
-  validates :content, presence: true
+  validates :content, :start_time, presence: true
 end
