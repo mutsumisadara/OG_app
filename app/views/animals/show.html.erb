@@ -1,6 +1,10 @@
 <div class="animal-profile">
   <div style="float: center;">
+  <% if @animal.picture.present? %>
     <%= image_tag @animal.picture_url %>
+  <% else %>
+    <%= image_tag 'dog.png' %>
+  <% end %>
     <p>今日で保護して<%= (Date.today.strftime("%m%d").to_i - @animal.birthday.strftime("%m%d").to_i) %>日目</p>
   </div>
     <%= @animal.name %>
