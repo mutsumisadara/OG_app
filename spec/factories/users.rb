@@ -14,5 +14,6 @@ FactoryBot.define do
     password { "sadaramutsumi" }
     password_confirmation { "sadaramutsumi" }
     admin {false}
+    association :group
   end
 end

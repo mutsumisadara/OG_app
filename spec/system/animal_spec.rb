@@ -6,7 +6,7 @@ RSpec.describe '動物機能', type: :system do
         user = FactoryBot.create(:user)
         animal = FactoryBot.create(:animal)
         group = FactoryBot.create(:group)
-        animal.group_id = group.id
+        animal_management = FactoryBot.create(:animal_management)
         visit user_session_path
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
@@ -16,7 +16,6 @@ RSpec.describe '動物機能', type: :system do
         visit new_animal_path
         fill_in 'animal[name]', with: animal.name
         fill_in 'animal[birthday]', with: animal.birthday
-        # fill_in 'animal[group_id]', with: 'group.id'
         click_button '登録'
         expect(page).to have_content 'animal1'
       end
