@@ -35,6 +35,19 @@ class CommentRoomsController < ApplicationController
     @comment_rooms = CommentRoom.where(group_id: @group)
   end
 
+  def update
+    set_params
+    @comment_room.group_id = current_user.group_id
+    respond_to do |format|
+    if @comment_room.update(set_params.attributes)
+      format.html { redirect_to comment_rooms_url(group_id: @comment_room.group_id), notice: 'チャットを更新しました' }
+      format.json { redirect_to comment_rooms_url(group_id:current_user.group_id), notice: 'チャットを更新しました' }
+    else
+      format.html { redirect_to comment_rooms_url(group_id: current_user.group_id), notice: '更新できませんでした' }
+      end
+    end
+  end
+
   def destroy
     @comment_room = CommentRoom.find(params[:id])
     @comment_room.destroy
