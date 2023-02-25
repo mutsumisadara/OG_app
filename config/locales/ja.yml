@@ -11,7 +11,7 @@ ja:
         information: '備考'
       group:
         name: 'グループ名'
-      comment_roon:
+      comment_room:
         content: '内容'
       schedule:
         content: '予定'

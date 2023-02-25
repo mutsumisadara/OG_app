@@ -25,10 +25,20 @@ class CommentRoomsController < ApplicationController
     end
   end
 
+  def edit
+    set_params
+  end
+
   def show
     set_params
     @group = Group.find(params[:group_id])
     @comment_rooms = CommentRoom.where(group_id: @group)
+  end
+
+  def destroy
+    @comment_room = CommentRoom.find(params[:id])
+    @comment_room.destroy
+      redirect_to comment_rooms_path(group_id: current_user.group_id), notice: 'チャットを削除しました'
   end
 
   private

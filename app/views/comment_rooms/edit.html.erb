@@ -1,0 +1,6 @@
+<h2>コメント編集</h2>
+
+<%= render 'form', comment_room: @comment_room %>
+<div class="btm-buttons">
+  <%= link_to '戻る', group_path(current_user.group_id), class: 'btn btn-light' %>
+</div>
