@@ -28,7 +28,7 @@ class SchedulesController < ApplicationController
   def update
     set_schedule
     @schedule.update(schedule_params)
-      redirect_to schedules_path(group_id: current_user.id), notice: '更新しました'
+      redirect_to schedules_path(group_id: current_user.group_id), notice: '更新しました'
   end
 
   def edit

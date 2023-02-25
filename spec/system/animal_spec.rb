@@ -43,7 +43,6 @@ RSpec.describe '動物機能', type: :system do
         user = FactoryBot.create(:user)
         animal = FactoryBot.create(:animal)
         group = FactoryBot.create(:group)
-        animal.group_id = group.id
         visit user_session_path
         fill_in 'user[email]', with: user.email
         fill_in 'user[password]', with: user.password
