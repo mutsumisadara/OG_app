@@ -2,5 +2,5 @@
 
 <%= render 'form', schedule: @schedule %>
 <div class="btm-buttons">
-  <%= link_to '戻る', schedules_path(group_id: @group.id), class: 'btn btn-light' %>
+  <%= link_to '戻る', schedules_path(group_id: @schedule.group_id), class: 'btn btn-light' %>
 </div>

@@ -2,7 +2,7 @@
 
   <% if @schedule.errors.any? %>
     <div id="error_explanation">
-      <h4><%= pluralize(@schedule.errors.count, "エラー") %> prohibited this animal from being saved:</h4>
+      <h4><%= pluralize(@schedule.errors.count, "件のエラー") %></h4>
       <ul>
         <% @schedule.errors.full_messages.each do |message| %>
           <li><%= message %></li>

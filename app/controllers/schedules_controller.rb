@@ -11,14 +11,13 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    # @group = Group.find(params[:group_id])
-    # @schedule = @group.schedules.build(schedule_params)
     @schedule = Schedule.new(schedule_params)
     @schedule.group_id = current_user.group_id
     if @schedule.save
       redirect_to schedules_path(group_id: @schedule.group_id), notice: 'スケジュールを追加しました'
     else
-      redirect_to schedules_path, notice: '失敗しました'
+      flash.now[:alert] = '失敗しました'
+      render :new
     end
   end
 
@@ -39,7 +38,7 @@ class SchedulesController < ApplicationController
   def destroy
     set_schedule
     @schedule.destroy
-      redirect_to schedules_path(group_id: current_user.id), notice: '削除しました'
+      redirect_to schedules_path(group_id: @schedule.group_id), notice: '削除しました'
   end
 
   private
