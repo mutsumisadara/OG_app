@@ -1,6 +1,5 @@
 <h2><%= @animal.name %> 編集</h2>
 
 <%= render 'form', animal: @animal %>
-<div class="btm-buttons">
-  <%= link_to '戻る', group_path(current_user.group_id), class: 'btn btn-light' %>
-</div>
+
+<%= link_to '戻る', group_path(current_user.group_id), class: 'btn btn-light' %>

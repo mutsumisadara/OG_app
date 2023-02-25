@@ -50,7 +50,7 @@ RSpec.describe 'グループ機能', type: :system do
         fill_in 'user[password]', with: user.password
         click_button 'ログイン'
         visit groups_path
-        click_link '削除'
+        click_link '削除', match: :first
         page.accept_confirm
         expect(page).not_to have_content 'group1'
       end
