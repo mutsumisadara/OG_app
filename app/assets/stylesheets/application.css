@@ -89,7 +89,7 @@
   .table-class {
     /* テーブル全体に適用されるスタイル */
     margin-top: 3rem;
-    margin-left: 31rem;
+    margin-left: 32rem;
     text-align: center;
     border-collapse: collapse;
     font-size: x-large;
@@ -169,4 +169,8 @@
   .btn {
     background-color: #FFCCFF;
     color: white;
+  }
+
+  .simple-calendar {
+    font-family: 'キウイ丸', serif;
   }
