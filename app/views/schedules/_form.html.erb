@@ -1,5 +1,16 @@
 <%= form_with(model: @schedule, local: true) do |form| %>
 
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@schedule.errors.count, "エラー") %> prohibited this animal from being saved:</h4>
+      <ul>
+        <% @schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :内容 %>
     <%= form.text_field :content, placeholder: 'スケジュール入力' %>

@@ -1,5 +1,6 @@
-<h1>スケジュール編集</h1>
+<h2>スケジュール編集</h2>
 
 <%= render 'form', schedule: @schedule %>
-
-<%= link_to '戻る', schedules_path(group_id: @schedule.group_id)  %>
+<div class="btm-buttons">
+  <%= link_to '戻る', schedules_path(group_id: @schedule.group_id), class: 'btn btn-light' %>
+</div>
