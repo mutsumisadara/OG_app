@@ -15,6 +15,7 @@ ja:
         content: '内容'
       schedule:
         content: '予定'
+        start_time: '日付'
       animal_management:
         recorded_on: '日付'
         content: '内容'
