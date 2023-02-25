@@ -1,5 +1,16 @@
 <%= form_with(model: [@animal, @animal_management], url: animal_animal_managements_path, local: true) do |form| %>
 
+  <% if @animal_management.errors.any? %>
+    <div id="error_explanation">
+      <h5><%= pluralize(@animal_management.errors.count, "件のエラー") %></h5>
+      <ul>
+        <% @animal_management.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :日付 %>
     <%= form.date_field :recorded_on %>

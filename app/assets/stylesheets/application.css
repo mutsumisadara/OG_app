@@ -20,6 +20,11 @@
     height: 100px;
   }
 
+  .navbar-nav {
+    font-family: 'キウイ丸', serif;
+    margin-left: 0;
+  }
+
   footer {
     position: fixed;
     bottom: 0;
@@ -57,7 +62,6 @@
     left: 50%;
     text-align: center;
     margin-bottom: 1rem;
-    font-family: 'キウイ丸', serif;
     font-family: 'キウイ丸', serif;
   }
 
@@ -159,11 +163,7 @@
   }
 
   #error_explanation li{
-    list-style:none;
-  }
-
-  .navbar-brand{
-    font-family: 'キウイ丸', serif;
+    list-style: none;
   }
 
   .btn {

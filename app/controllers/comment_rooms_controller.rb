@@ -25,7 +25,6 @@ class CommentRoomsController < ApplicationController
     end
   end
 
-
   def show
     set_params
     @group = Group.find(params[:group_id])
