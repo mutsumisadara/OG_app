@@ -4,7 +4,6 @@ class CommentRoomsController < ApplicationController
     @comment_rooms = CommentRoom.where(group_id: @group)
     # @comment_rooms = CommentRoom.includes(group: :users)
     @comment_room = CommentRoom.new
-    # binding.pry
   end
 
   def new
@@ -17,10 +16,8 @@ class CommentRoomsController < ApplicationController
     @comment_room.group_id = current_user.group_id
     respond_to do |format|
       if @comment_room.save
-                        # binding.pry
         format.html { redirect_to comment_rooms_url(group_id: @comment_room.group_id) }
         format.json { redirect_to comment_rooms_url }
-        # format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :index, status: :unprocessable_entity }
         format.json { render json: @comment_room.errors, status: :unprocessable_entity }
