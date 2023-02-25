@@ -27,6 +27,11 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+      animal: 動物
+      schedule: スケジュール
+      group: グループ
+      animal_management: 動物管理
+      comment_room: チャットルーム
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
