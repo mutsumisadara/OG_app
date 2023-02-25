@@ -17,10 +17,10 @@ class CommentRoomsController < ApplicationController
     respond_to do |format|
       if @comment_room.save
         format.html { redirect_to comment_rooms_url(group_id: @comment_room.group_id) }
-        format.json { redirect_to comment_rooms_url }
+        format.json { redirect_to comment_rooms_url(group_id: @comment_room.group_id) }
       else
-        format.html { render :index, status: :unprocessable_entity }
-        format.json { render json: @comment_room.errors, status: :unprocessable_entity }
+        format.html { redirect_to comment_rooms_url(group_id: @comment_room.group_id), notice: '投稿できませんでした' }
+        # format.json { render json: @comment_room.errors, status: :unprocessable_entity }
       end
     end
   end
