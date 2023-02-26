@@ -4,19 +4,17 @@
   <h2>グループ一覧🐾</h2>
 <% end %>
 
-<div class="group-list">
-  <table>
-      <% @groups.each do |group| %>
-        <tr>
-          <td><%= link_to group.name, group, class: "link-class" %></td>
-          <% if current_user.try(:admin?) %>
-            <td><%= link_to '編集', edit_group_path(group.id), class: "link-class" %></td>
-            <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "link-class" %></td>
-          <% end %>
-        </tr>
+<table class="table-group">
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= link_to group.name, group, class: "link-class" %></td>
+      <% if current_user.try(:admin?) %>
+        <td><%= link_to '編集', edit_group_path(group.id), class: "link-class" %></td>
+        <td><%= link_to '削除', group, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "link-class" %></td>
       <% end %>
-  </table>
-</div>
+    </tr>
+  <% end %>
+</table>
 <br>
 <div class="btm-buttons">
   <%= link_to 'マイページ', user_path(current_user.id), class: 'btn btn-light' %>

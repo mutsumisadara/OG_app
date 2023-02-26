@@ -1,14 +1,14 @@
 <h2>チャットルーム🗣️</h2>
 
 <table class="table-chat">
-  <tr>
   <% @comment_rooms.each do |comment_room| %>
+    <tr>
     <td><%= comment_room.content %></td>
     <td><%= comment_room.created_at.strftime("%m/%d %H:%M") %></td>
     <td><%= link_to '編集', edit_comment_room_path(comment_room.id), class: "link-class" %></td>
     <td><%= link_to '削除', comment_room, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "link-class" %></td>
+    </tr>
   <% end %>
-  </tr>
 </table>
 
 <div class="field">

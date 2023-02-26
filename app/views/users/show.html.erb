@@ -6,6 +6,22 @@
   所属していません
 <% end %></h4>
 
+<div class="team-member">
+  <table class="table">
+    <tr>
+      <h5><%= "#{current_user.group.name}の" %><%= I18n.t('views.messages.team_members2') %></h5>
+    </tr>
+  </table>
+  <table class="table">
+    <tbody>
+      <% @user.group.users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <div class="btm-buttons">
   <%= link_to 'グループ一覧', groups_path, class: 'btn btn-light' %>
   <%= link_to '編集', edit_user_path(current_user.id), class: 'btn btn-light' %>
