@@ -7,7 +7,6 @@ class AnimalManagementsController < ApplicationController
   def create
     @animal_management = AnimalManagement.new(animal_management_params)
     @animal_management.animal_id = params[:animal_id]
-    # @animal_management = animal.animal_managements.build(animal_management_params)
     if @animal_management.save
       redirect_to animal_path(@animal_management.animal_id), notice: 'カルテを作成しました'
     else
@@ -24,7 +23,6 @@ class AnimalManagementsController < ApplicationController
   end
   
   def update
-    # binding.pry
     set_animal_management
     if @animal_management.update(animal_management_params)
       redirect_to animal_path(@animal_management.animal_id), notice: 'カルテを更新しました'
@@ -33,7 +31,6 @@ class AnimalManagementsController < ApplicationController
 
   def destroy
     set_animal_management
-      # binding.pry
     if @animal_management.destroy
       redirect_to animal_path(@animal_management.animal_id), notice: 'カルテを削除しました'
     end

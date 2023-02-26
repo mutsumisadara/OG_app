@@ -24,7 +24,6 @@ class AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
-    # binding.pry
     @animal.update(animal_params)
       redirect_to animal_path(@animal.id), notice: '天使を更新しました'
   end

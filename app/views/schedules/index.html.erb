@@ -1,14 +1,15 @@
 <h2>スケジュール</h2>
-  <%= month_calendar do |date| %>
-    <%= date.day %>
-    <% @schedules.where(start_time: date.beginning_of_day..date.end_of_day).each do |schedule| %>
-      <div>
-        <%=link_to schedule.content, schedule_path(schedule.id) %>
-      </div>
-    <% end %>
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <% @schedules.where(start_time: date.beginning_of_day..date.end_of_day).each do |schedule| %>
+    <div>
+      <%=link_to schedule.content, schedule_path(schedule.id) %>
+    </div>
   <% end %>
+<% end %>
   
-  <div class="btm-buttons">
-    <%= link_to 'スケジュール追加', new_schedule_path(group_id: @group.id), class: 'btn btn-light' %>
-    <%= link_to '戻る', group_path(@group.id), class: 'btn btn-light' %>
-  </div>
+<div class="btm-buttons">
+  <%= link_to 'スケジュール追加', new_schedule_path(group_id: @group.id), class: 'btn btn-light' %>
+  <%= link_to '戻る', group_path(@group.id), class: 'btn btn-light' %>
+</div>

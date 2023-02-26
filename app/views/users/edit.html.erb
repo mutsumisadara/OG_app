@@ -1,7 +1,6 @@
 <%= form_with(model: @user, local: true) do |form| %>
+  <h2><%= current_user.name %> 編集</h2><br>
 
-  <h2><%= current_user.name %> 編集</h2>
-  <br>
   <div class="field">
     <%= form.label :名前 %>
     <%= form.text_field :name, placeholder: '名前入力' %>
@@ -17,7 +16,6 @@
   </div>
 <% end %>
 
-
 <div class="btm-buttons">
-<%= link_to '戻る', user_path(current_user.id), class: 'btn btn-light' %>
+  <%= link_to '戻る', user_path(current_user.id), class: 'btn btn-light' %>
 </div>

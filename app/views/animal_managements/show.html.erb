@@ -1,7 +1,7 @@
 <h2><%= @animal_management.recorded_on %></h2>
 
-  <h4>内容：<%= @animal_management.content %></h4>
-  <h4>体温：<%= @animal_management.temprature %></h4>
+<h4>内容：<%= @animal_management.content %></h4>
+<h4>体温：<%= @animal_management.temprature %></h4>
 
 <div class="btm-buttons">
   <%= link_to '編集', edit_animal_animal_management_path(@animal_management.animal_id, @animal_management.id), class: 'btn btn-light' %>

@@ -1,5 +1,4 @@
 <%= form_with(model: [@animal, @animal_management], url: animal_animal_managements_path, local: true) do |form| %>
-
   <% if @animal_management.errors.any? %>
     <div id="error_explanation">
       <h5><%= pluralize(@animal_management.errors.count, "件のエラー") %></h5>
@@ -29,5 +28,4 @@
   <div class="actions">
     <%= form.submit '登録', class: 'btn btn-light' %>
   </div>
-
 <% end %>

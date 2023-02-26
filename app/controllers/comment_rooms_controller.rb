@@ -1,8 +1,8 @@
 class CommentRoomsController < ApplicationController
+
   def index
     @group = Group.find(params[:group_id])
     @comment_rooms = CommentRoom.where(group_id: @group)
-    # @comment_rooms = CommentRoom.includes(group: :users)
     @comment_room = CommentRoom.new
   end
 
@@ -20,7 +20,6 @@ class CommentRoomsController < ApplicationController
         format.json { redirect_to comment_rooms_url(group_id: @comment_room.group_id) }
       else
         format.html { redirect_to comment_rooms_url(group_id: @comment_room.group_id), notice: '投稿できませんでした' }
-        # format.json { render json: @comment_room.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    # binding.pry
     @user.update(user_params)
       redirect_to user_path(@user.id), notice: 'ユーザー情報を更新しました'
   end
@@ -27,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:id, :name, :email, :encrypted_password)
   end

@@ -1,5 +1,4 @@
 <%= form_with(model: @animal, local: true) do |form| %>
-
   <% if animal.errors.any? %>
     <div id="error_explanation">
       <h5><%= pluralize(@animal.errors.count, "件のエラー") %></h5>

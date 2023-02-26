@@ -42,7 +42,6 @@ class SchedulesController < ApplicationController
   end
 
   private
-
   def schedule_params
     params.require(:schedule).permit(:id, :content, :start_time, :group_id)
   end
