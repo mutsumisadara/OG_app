@@ -3,18 +3,16 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-      @groups = Group.all
+    @groups = Group.all
   end
 
   def new
-      @group = Group.new
+    @group = Group.new
   end
 
   def show
-    if current_user.admin?      
+    if current_user.admin? || @group.users.include?(current_user)
       @group = Group.find(params[:id])
-    elsif
-      @group.users.include?(current_user)
     else
       redirect_to groups_path, notice: '属していません'
     end
@@ -25,7 +23,6 @@ class GroupsController < ApplicationController
     @group.owner_id = current_user.id
     if @group.save
       current_user.update_attribute(:group_id, @group.id)
-      # binding.pry
       redirect_to groups_path, notice: "#{@group.name}を作成しました"
     else
       flash.now[:alert] = '失敗しました'
@@ -80,7 +77,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @user = User.find(params[:user_id])
     @user.update(group_id: nil)
-    redirect_to @group, notice: "#{@user.name}をグループから削除しました"
+      redirect_to @group, notice: "#{@user.name}をグループから削除しました"
   end
 
   private

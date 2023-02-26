@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-  <h2>スケジュール詳細</h2>
+<h2>スケジュール詳細</h2>
 
-  <table class="table-schedule">
-    <tr><td>日付：<%= @schedule.start_time.strftime("%Y/%m/%d") %></td></tr>
-    <tr><td>内容：<%= @schedule.content %></td></tr>
-  </table>  
+<table class="table-schedule">
+  <tr><td>日付：<%= @schedule.start_time.strftime("%Y/%m/%d") %></td></tr>
+  <tr><td>内容：<%= @schedule.content %></td></tr>
+</table>  
 <br>
-
 <div class="btm-buttons">
   <%=link_to '編集', edit_schedule_path(@schedule.id), class: 'btn btn-light' %>
   <%= link_to '削除', @schedule, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light' %>

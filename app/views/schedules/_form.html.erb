@@ -1,5 +1,4 @@
 <%= form_with(model: @schedule, local: true) do |form| %>
-
   <% if @schedule.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@schedule.errors.count, "件のエラー") %></h4>

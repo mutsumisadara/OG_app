@@ -1,11 +1,10 @@
+<h2><%= current_user.name %>のマイページ</h2>
 
-  <h2><%= current_user.name %>のマイページ</h2>
-  <h4>所属グループ：<% if current_user.group %>
+<h4>所属グループ：<% if current_user.group %>
   <%= link_to current_user.group.name, group_path(current_user.group_id) %>
-  <% else %>
-    所属していません
-  <% end %></h4>
-
+<% else %>
+  所属していません
+<% end %></h4>
 
 <div class="btm-buttons">
   <%= link_to 'グループ一覧', groups_path, class: 'btn btn-light' %>
