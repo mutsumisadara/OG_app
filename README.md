@@ -10,7 +10,6 @@ Rails 6.1.7
 ## 就業Termの技術
 ---
 devise<br>
-AWS<br>
 Ajax
 </br>
 

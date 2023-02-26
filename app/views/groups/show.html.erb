@@ -28,7 +28,7 @@
 <h4>天使たち🐾</h4>
 <table class="table-class">
   <% @group.animals.each do |animal| %>
-    <tr><td><%= link_to animal.name, animal_path(animal) %></td></tr>
+    <tr><td><%= link_to animal.name, animal_path(animal), class: "link-class"  %></td></tr>
   <% end %>
 </table>
 <div class="btm-buttons">
