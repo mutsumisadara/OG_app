@@ -64,21 +64,33 @@ class GroupsController < ApplicationController
   def invite_member
     @group = Group.find(params[:id])
     @user = User.find_by(email: params[:group][:email])
-    if @user.present?
+    if @user.present? && @user.group_id == nil
       @user.group_id = current_user.group_id
       @user.update(group_id: @user.group_id)
         redirect_to group_path(@group.id), notice: "#{@user.name}を招待しました"
     else
-      flash.now[:alert] = '招待するメンバーが存在しません'
+      flash.now[:alert] = '招待するメンバーが存在しません、または既に他のグループに所属しています。'
       render :show
     end
-  end  
+  end
+
+# elsif @user.group_id.present?
+#   flash.now[:alert] = "#{@user.name}は既に他のグループに所属しています。"
+#   render :show
+# else
+#   flash.now[:alert] = '招待するメンバーが存在しません'
+#   render :show
 
   def remove_member
     @group = Group.find(params[:id])
     @user = User.find(params[:user_id])
-    @user.update(group_id: nil)
+    if @group.users.count == 1
+      flash.now[:alert] = '最後の一人は消せません'
+      render :show
+    else
+      @user.update(group_id: nil)
       redirect_to @group, notice: "#{@user.name}をグループから削除しました"
+    end
   end
 
   private

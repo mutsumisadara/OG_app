@@ -28,10 +28,11 @@
     width: 100px;
     height: 100px;
   }
-
+  
   .navbar-nav {
+    text-align: left;
     font-family: 'キウイ丸', serif;
-    margin-left: 0;
+    margin-right: 10rem;
   }
 
   footer {
