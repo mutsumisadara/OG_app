@@ -18,7 +18,7 @@
   .top-logo {
     width: 100%;
     height: auto;
-    max-width: 280px;
+    max-width: 260px;
     display: block;
     margin: 0 auto;
   }
@@ -29,10 +29,10 @@
     height: 100px;
   }
   
-  .navbar-nav {
-    text-align: left;
+  .nav-link {
     font-family: 'キウイ丸', serif;
-    margin-right: 10rem;
+    margin-left: 6rem;
+    font-size: large;
   }
 
   footer {
@@ -47,7 +47,7 @@
   .btm-buttons {
     position: fixed;
     top: 85%;
-    left: 50%;
+    left: 49%;
     transform: translate(-50%, -50%);
     text-align: center;
     font-family: 'キウイ丸', serif;
@@ -83,7 +83,7 @@
     margin: 0 25%;
     color: rgb(53, 53, 53);
     font-weight: bold;
-    padding: 1rem 0;
+    padding: 2rem 0;
     font-family: 'キウイ丸', serif;
   }
 
@@ -173,10 +173,14 @@
   }
 
   .btn {
-    background-color: #FFCCFF;
+    background-color: #FFC0CB;
     color: white;
   }
 
   .simple-calendar {
     font-family: 'キウイ丸', serif;
+  }
+
+  .main {
+    margin-bottom: 10rem;
   }

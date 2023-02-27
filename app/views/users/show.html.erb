@@ -1,7 +1,7 @@
 <h2><%= current_user.name %>のマイページ</h2>
 
 <h4>所属グループ：<% if current_user.group %>
-  <%= link_to current_user.group.name, group_path(current_user.group_id) %>
+  <%= link_to current_user.group.name, group_path(current_user.group_id), class: "link-class"  %>
 <% else %>
   所属していません
 <% end %></h4>
