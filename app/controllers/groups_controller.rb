@@ -74,13 +74,6 @@ class GroupsController < ApplicationController
     end
   end
 
-# elsif @user.group_id.present?
-#   flash.now[:alert] = "#{@user.name}は既に他のグループに所属しています。"
-#   render :show
-# else
-#   flash.now[:alert] = '招待するメンバーが存在しません'
-#   render :show
-
   def remove_member
     @group = Group.find(params[:id])
     @user = User.find(params[:user_id])
