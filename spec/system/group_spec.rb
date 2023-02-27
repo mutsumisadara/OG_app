@@ -14,6 +14,21 @@ RSpec.describe 'グループ機能', type: :system do
         expect(page).to have_content 'グループ1'
       end
     end
+    context 'グループを作成した場合' do
+      it '作成したグループにメンバーを招待できる' do
+        user = FactoryBot.create(:user)
+        second_user = FactoryBot.create(:second_user)
+        group = FactoryBot.create(:group)
+        visit user_session_path
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+        visit group_path(group.id)
+        fill_in 'group[email]', with: second_user.email
+        click_button '招待'
+        expect(page).to have_content second_user.name
+      end
+    end
     context 'グループを作成した場合管理者は' do
       it 'グループの編集ができる' do
         user = FactoryBot.create(:user)
