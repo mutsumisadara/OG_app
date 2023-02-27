@@ -14,6 +14,15 @@
  *= require_tree .
  *= require_self
  */
+
+  .top-logo {
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+    display: block;
+    margin: 0 auto;
+  }
+
   img {
     border-radius: 50%;
     width: 100px;
@@ -121,11 +130,9 @@
   
   .top-page {
     text-align: center;
-    margin-top: 3rem;
-    font-size: 50px;
     border-bottom: solid 1px rgb(53, 53, 53) ;
     margin: 0 25%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     color: rgb(53, 53, 53);
     font-weight: bold;
     padding: 1rem 0;
@@ -136,8 +143,8 @@
     text-align: center;
     margin-top: 3rem;
     font-size: 20px;
-    margin: 0 25%;
-    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
     color: rgb(53, 53, 53);
     font-weight: bold;
     padding: 1rem 0;

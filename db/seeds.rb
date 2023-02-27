@@ -169,9 +169,9 @@ Animal.all.each do |animal|
   5.times do |n|
     animal.animal_managements.create!(
       recorded_on: Time.zone.today - n.days,
-      content: "朝食:ドライフード:20g<br>
-                おやつ#{n+1}つ<br>
-                トイレ#{n+1}回<br>
+      content: "朝食:ドライフード:20g\n
+                おやつ#{n+1}つ\n
+                トイレ#{n+1}回\n
                 夕食:ウェットフード:20g",
       temprature: (39.0),
       animal: animal

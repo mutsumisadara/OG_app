@@ -64,14 +64,15 @@ class GroupsController < ApplicationController
   def invite_member
     @group = Group.find(params[:id])
     @user = User.find_by(email: params[:group][:email])
-    @user.group_id = current_user.group_id
-    if @user.update(group_id: @user.group_id)
-      redirect_to group_path(@group.id), notice: "#{@user.name}を招待しました"
+    if @user.present?
+      @user.group_id = current_user.group_id
+      @user.update(group_id: @user.group_id)
+        redirect_to group_path(@group.id), notice: "#{@user.name}を招待しました"
     else
-      flash.now[:alert] = '失敗しました'
+      flash.now[:alert] = '招待するメンバーが存在しません'
       render :show
     end
-  end
+  end  
 
   def remove_member
     @group = Group.find(params[:id])
